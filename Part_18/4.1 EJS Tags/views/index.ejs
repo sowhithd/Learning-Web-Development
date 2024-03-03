@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EJS Tags</title>
+</head>
+<%# Here we have use few EJS tags and we can see the usage of each tag %>
+<body>
+  <h1>
+    <!--  EJs Output tag Title goes here -->
+    <%= title %>
+  </h1>
+  <p>Current second:
+    <!-- EJs Output tag  Current second goes here -->
+    <%= seconds %>
+  </p>
+  <%# Below is EJS code execution tag%>
+  <% if (seconds % 2===0) { %>
+  <ul>
+    <!-- <% for (let index = 0; index < items.length; index++) { %>
+     <li><%= items[index]; %></li> 
+    <%} %> -->
+              <!-- OR -->
+        <% items.forEach(fruit => {  %> 
+         <li><%= fruit %></li>  
+         <%   }); %>    
+  </ul>
+  <% } else { %>
+  <p>No items to display</p>
+ <% } %>
+  <p>
+    <!--EJS HTML render tag HTML content goes here -->
+    <%- htmlContent %>
+  </p>
+
+  <!-- EJS add ref of another EJs file Footer goes here -->
+  <%- include('./footer.ejs') %>
+</body>
+
+</html>

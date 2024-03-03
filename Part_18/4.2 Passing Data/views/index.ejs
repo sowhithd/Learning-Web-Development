@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name Letters</title>
+</head>
+
+<body>
+  <!-- <h1><%=locals.headingtext%> &#128071;</h1> -->
+
+  <!-- locals is, is basically a way to access all of the variables that get sent over with a res.render. -->
+  <% if (locals.numberOfLetters) { %>
+    <h1>There are <%= numberOfLetters %> letters in your name.</h1>
+    <% } else { %>
+    <h1>Enter your name below 👇</h1>
+    <% } %>
+  <form action="/submit" method="POST">
+    <input type="text" name="fName" placeholder="First name">
+    <input type="text" name="lName" placeholder="Last name">
+    <input type="submit" value="OK">
+  </form>
+</body>
+
+</html>

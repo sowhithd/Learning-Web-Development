@@ -1,0 +1,72 @@
+Write a program that prints the numbers from 1 to 100. 
+But for the multiples of three print "Fizz" instead of the number. 
+    for the  multiples of five print "Buzz” instead of the number.
+    for numbers which are multiples of both three and five print "FizzBuzz”.
+
+
+Code Snippet:
+
+using For Loop:
+
+for (let i = 1; i <= 100; i++) {
+    var txt = CheckMultiplesofThreeAndFive(i);
+    if(txt !== '') {
+        console.log(txt);
+    }
+    else {
+        console.log(i);
+    }
+}
+
+
+using While Loop:
+
+whiel (count<= 100) {
+     var txt = CheckMultiplesofThreeAndFive(i);
+    if(txt !== '') {
+        console.log(txt);
+    }
+    else {
+        console.log(i);
+    }
+ count ++;
+}
+
+
+function CheckMultiplesofThreeAndFive(number) {
+    var text = '';
+    if(number % 3 === 0) {
+    text = 'Fizz';
+   }
+   if(number % 5 === 0) {
+       text = 'Buzz';
+   }
+   if((number % 3 === 0) && (number % 5 === 0)){
+       text = 'FizzBuzz';
+   }
+    return text;
+}
+
+
+Other Way of writting code:
+
+var arr = [];
+var initialNum = 1;
+function FizzBuzz() {
+     if((initialNum % 3 === 0) && (initialNum % 5 === 0)){
+       arr.push('FizzBuzz');
+   }
+   else if(initialNum % 3 === 0) {
+    arr.push('Fizz');
+   }
+   else if(initialNum % 5 === 0) {
+     arr.push('Buzz');
+   }
+   else {
+    arr.push(initialNum);
+   } 
+   initialNum ++;
+    console.log(arr);
+}
+
+But in this case need to call FizzBuzz() method every time in console as we pushing the new number everytime along with multiple check of 3 and 5.

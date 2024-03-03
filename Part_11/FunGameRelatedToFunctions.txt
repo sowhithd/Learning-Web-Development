@@ -1,0 +1,170 @@
+Function: They allow you to create a series of instructions, package into a block of code, remember the meaning of package is including
+           instructions inside curly braces   
+
+As a fun game we have done few excerises:
+IDE:https://stanford.edu/~cpiech/karel/ide.html
+
+Task1: Move in line L direction
+
+  function call in Main method:  moveToTopRight();
+
+functions:
+
+function moveToTopRight(){
+moveFourTimes();
+turnLeft();
+moveFourTimes();
+}
+
+function moveFourTimes() {
+move();
+move();
+move();
+move();
+}
+
+ Task2: Move diagnoannly with planting beeper:
+
+ first approach added in main method:
+
+ //first row
+   putBeeper();
+   moveFourTimes();
+   //first row
+   //turn
+   movetoNextRowFromRight();
+   //turn
+   //Second row
+   moveThreeTimes(); 
+   putBeeper();
+   //Second row
+   //turn
+   movetoNextRowFromLeft();
+   //turn
+   //third row
+    moveTwoTimes();
+    putBeeper();
+    moveTwoTimes();
+   //third row
+    //turn
+   movetoNextRowFromRight();
+   //turn
+   //fourth row
+    move();
+    putBeeper();
+    moveThreeTimes(); 
+   //fourth row
+   //turn
+   moveToLastRow();
+   //turn
+   //fifth row
+   moveFourTimes();
+   putBeeper();
+   //fifth row
+   
+
+   second approch:
+    
+   putBeeper();
+   PlaceBeeperDaigonally();
+   PlaceBeeperDaigonally();
+   PlaceBeeperDaigonally();
+   PlaceBeeperDaigonally();
+    
+
+functions:
+
+function PlaceBeeperDaigonally() {
+move();
+turnLeft();
+move();
+putBeeper();
+turnRight();
+}
+
+function movetoNextRowFromRight(){
+turnLeft();
+move();
+turnLeft();
+}
+
+function movetoNextRowFromLeft(){
+move();
+turnRight();
+move();
+turnRight();
+}
+
+function moveToLastRow(){
+turnRight();
+move();
+turnRight();
+}
+
+function moveFourTimes() {
+move();
+move();
+move();
+move();
+}
+
+
+function moveThreeTimes() {
+move();
+move();
+move();
+}
+
+function moveTwoTimes() {
+move();
+move();
+} 
+
+
+Task3: Move in Chess board form plnating beeper alternatively
+
+function call:
+PlaceBeeperInOddRow();
+leftTurn();
+PlaceBeeperInEvevRow();
+rightTurn();
+PlaceBeeperInOddRow();
+leftTurn();
+PlaceBeeperInEvevRow();
+rightTurn();
+PlaceBeeperInOddRow();
+        
+        
+functions:
+
+function PlaceBeeperInOddRow(){
+putBeeper();     
+move();
+move();
+putBeeper(); 
+move();
+move();
+putBeeper();
+}
+
+function PlaceBeeperInEvevRow(){
+move();
+putBeeper(); 
+move();
+move();
+putBeeper(); 
+move();
+}
+
+function leftTurn(){
+turnLeft();
+move();
+turnLeft();
+}
+
+function rightTurn(){
+turnRight();
+move();
+turnRight();
+}
+

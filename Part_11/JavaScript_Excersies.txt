@@ -1,0 +1,57 @@
+Excerise_1: On BasiMatch Logical
+
+function test() {
+
+    var a = 3;
+    var b = 8;
+
+    console.log("Value of a before swap is : "+a);
+    console.log("Value of b before swap is : "+b);
+    /*
+    b = a + b;
+    a = b - a;
+    b = b - a; 
+     */
+     //or
+    var c = a;
+    a = b;
+    b = c;
+    console.log("Value of a after swap is : "+a);
+    console.log("Value of b after swap is : "+b);
+}
+test();
+
+Excerise_2:On JavaScript String length and Slice methods
+var desc = prompt("Write Something new/contervirsal");
+var paragraphLimit = 280;
+//Excerise_1
+/*
+var desc = prompt("Write Something new/contervirsal");
+var leftOutCharactercount = paragraphLimit - desc.length;
+alert("You have written "+desc.length+" characters, you have "+leftOutCharactercount+" characters left");
+*/
+
+//Excerise_2
+/*
+var desc = prompt("Write Something new/contervirsal");
+if(desc.length > paragraphLimit){
+   var modifiedDesc =  desc.slice(0,paragraphLimit);
+    console.log(modifiedDesc);
+    alert("Allowed characters are only allowed 280");
+}
+*/
+       //OR
+//alert(prompt("Write Something new/contervirsal").slice(0,paragraphLimit));
+
+
+Excerise_3:On JavaScript Casing
+
+var firstName = prompt("Please Enter your First Name:");
+var lastName  =  prompt("Please Enter your Last Name:");
+var firstNameLetterupperCase = firstName.slice(0,1).toUpperCase();
+var lastNameLetterupperCase = lastName.slice(0,1).toUpperCase();
+var greetings = "Hello, "+ firstNameLetterupperCase+firstName.slice(1,firstName.length).toLowerCase() +" "+
+                lastNameLetterupperCase + lastName.slice(1,lastName.length).toLowerCase();
+
+alert(greetings);
+

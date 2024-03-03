@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mondrian Project</title>
+  <style>
+    /* Working one */
+    /* 
+    Write your CSS here 
+    Gap Colour: #000
+    White: #F0F1EC
+    Red: #E72F24
+    Black: #232629
+    Blue: #004592
+    Yellow: #F9D01E
+
+    For dimensions, see dimensions.png image.
+    HINT: Remember you can't change the properties of grid lines.
+    But grid lines are transparent!
+    */
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      display: grid;
+      background-color: #000;
+      height: 748px;
+      grid-template-columns: 320px 198px 153px 50px;
+      grid-template-rows: 414px 130px 155px 22px;
+      gap: 9px;
+      width: 748px;
+    }
+    .whitebackground {
+      background-color: #F0F1EC;
+    }
+    .child1{
+      background-color:#E72F24;
+    }
+    .child2 {
+      grid-column: span 3;
+    }
+    .child3{
+      grid-row: span 2;
+    }
+    .child4{
+      grid-area: 2 / 2 / 4 /4;
+    }
+    .child5{
+      background-color:#004592;
+      border-bottom: 10px solid black;
+    }
+    .child6{
+      grid-row: span 2;
+    }
+    .child8 {
+      background-color: #F9D01E;
+    }
+
+    .child9 {
+      background-color: #232629;
+    }
+
+    /* Written by me */
+    /* body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      display: grid;
+      background-color: #000;
+      height: 748px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      gap: 9px;
+      width: 748px;
+    }
+    .whitebackground {
+      background-color: #F0F1EC;
+    }
+    .child1{
+      background-color:#E72F24;
+      height: 414px;
+      width: 320px;
+    }
+    .child2 {
+      grid-column: span 3;
+    }
+    .child3{
+      grid-row: span 2;
+    }
+    .child4{
+      grid-area: 2 / 2 / 4 / 4;
+    }
+    .child5{
+      background-color:#004592;
+      border-bottom: 10px solid black;
+      height: 130px;
+      width: 50px;
+    }
+    .child6{
+      grid-row: span 2;
+    }
+    .child7 {
+      height: 20px;
+    }
+    .child8 {
+      background-color: #F9D01E;
+      height: 20px;
+      width: 198px
+    }
+    .child9 {
+      background-color: #232629;
+      height: 20px;
+      width: 153px
+    }  */
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="child1"></div>
+    <div class="child2 whitebackground"></div>
+    <div class="child3 whitebackground"></div>
+    <div class="child4 whitebackground"></div>
+    <div class="child5"></div>
+    <div class="child6 whitebackground"></div>
+    <div class="child7 whitebackground"></div>
+    <div class="child8"></div>
+    <div class="child9"></div>
+  </div>
+</body>
+
+</html>

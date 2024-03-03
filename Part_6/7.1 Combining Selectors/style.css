@@ -1,0 +1,44 @@
+/* Write your code here: */
+
+/* Group Selector */
+/* applided to line 13 & 14 in index.html */
+h1, h2 {
+    color: blueviolet;
+}
+
+/* 
+    Child selector : can be applied to direct child of left side (meaning it has to be one level nested
+    inside this selector has to be only one level inside this one).
+ */
+ /* applided to line 16 in index.html */
+ .box > p{
+    color: firebrick;
+ }
+
+ /* Descendant Selector */
+/* applided to line 18 in index.html */
+.box li {
+    color: blue;
+}
+
+/* 
+    Chaining Selector : CSS rule applies to elements when all selectors are matched/true 
+    In Chaining selector element will be first followed by id/class selectors without space
+    ex:li#first-child.done( This is is 'elementidclass' format and order doesn't matter but the
+                             first one will be element).
+*/
+/* applided to line 19 and 20 in index.html */
+li.done {
+    color: green;
+}
+
+
+/* Multiple Combiners */
+/* applided to line 25 in index.html */
+ul p.done{ 
+    font-size: 0.5rem;
+}
+/* in this case we can apply child seletor instead of Multiple combiners selector */
+/* ul > p {
+ font-size: 0.5rem;
+} */

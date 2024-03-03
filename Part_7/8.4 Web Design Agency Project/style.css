@@ -1,0 +1,69 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 50px 50px 0 50px;
+  background-color: #faf9f6;
+  display: flex;
+  flex-direction: column;
+  /* vh: viewport height */
+  min-height: 95vh;
+}
+.main {
+  flex: 2;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+footer {
+  text-align: right;
+  color: midnightblue;
+}
+
+ .tile-image {
+  height: 200px;
+  float: left;
+  margin-right: 50px;
+}
+
+.card {
+  width: 45%;
+}
+
+ .left {
+  float: left;
+} 
+
+.right {
+  float: right;
+} 
+
+ @media (max-width:680px) {
+  .logo{
+    width: 100px;
+  }
+  h1 {
+    font-size: 3.5rem;
+    text-align:center;
+  }
+  .card {
+    width: 100%;
+    display: block;
+    margin-bottom: 30px;
+    text-align: justify;
+  }
+
+  .card img {
+    margin-bottom: 10px;
+    width: 100%;
+    display: inline;
+    /* 
+      * The CSS object-fit property is used to specify how an <img> or <video> 
+        should be resized to fit its container.
+      * This property tells the content to fill the container in a variety of ways; 
+        such as "preserve that aspect ratio" or "stretch up and take up as much space as possible".
+
+    */
+    object-fit: cover;
+  }
+} 
