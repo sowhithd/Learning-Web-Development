@@ -1,0 +1,214 @@
+Git Commands:
+
+git init - Create a new git repo
+
+git status - View the changes to your project code
+
+git add - Add files to staging area
+ To add all untracked files to staged using single command : git add .
+ To add sepecific file to staged then command is : git add <file_name>
+
+git commit - Creates a new commit with files from staging area
+    To commit the staged changes along with message git commit -m "<message to convey about changes>"
+    
+    usually commit messages, they are written in the present tense and this is the best practice.
+
+git log - View recent commits
+
+To roll back to file  as it was at previous commit you can use following
+
+Command: git checkout <file_name>
+
+really useful for you.
+
+git bash:
+To check do we have the ssh key or not:
+command: ls -a ~/.ssh
+-a: to show the hidden files
+~: short for the user directory
+
+If we see .git folder it's going to be used to track all your changes, to commit your changes and to perform version control.
+
+To check ssh agent is running or not:
+This helps to communicate other service like github, which actually know which ssh key to use.
+ command: eval "$(ssh-agent -s)"
+
+To add ssh key:
+command:  ssh-add ~/.ssh/<Private key_name the one which won't have .pub extension can be found from ls command>
+
+To create new ssh key:
+-t : is type of encryption
+command: ssh-keygen -t ed25519 -C "your_email@example.com"
+
+To copy public key to clipboard:
+command: clip < ~/.ssh/id_ed25519.pub
+
+The below command will do the ssh connection through the github servers
+command:  ssh -T git@github.com
+
+To create a clone of code from github repository:
+command: git remote add origin <Github Repo SSH URL copied from Github for the respective repository>
+
+
+To Clone Existing repository using command line using git:
+Command: git remote add origin <GitHub_URL>
+
+"origin" is simply the name of your remote and you can theoretically call it anything you want. But by convention and it's highly recommended that you simply keep
+the name origin.
+
+Now that remote is created, so we can push our local repository onto our Remote Repository, which is called origin.
+
+* This command adds a reference (remote) named "origin" (you can choose any name) to an existing local Git repository.
+
+* It doesn't download any files or create a new repository.
+
+* You need to have an existing Git repository initialized in your local directory before using this command.
+
+* This command allows you to connect your local repository to the remote repository on GitHub, enabling you to push your changes (commits) to the remote repository and pull updates (commits) from it.
+
+
+
+Git Clone:
+Command: git clone <GitHub_URL>
+
+* This command creates a new Git repository on your local machine.
+
+* It downloads all the files and commits history from the remote repository specified by the <GitHub_URL>.
+
+* It creates a hidden folder named .git in your local directory, which stores all the Git metadata for the project.
+
+* You can then start working on the project by making changes to the files and committing them.
+
+
+
+
+
+Use git clone when you want to download a fresh copy of a remote repository to your local machine and start working on it.
+Use git remote add when you already have a local Git repository and want to establish a connection to a remote repository on GitHub for pushing and pulling commits.
+
+
+
+Feature	                  git clone <GitHub_URL>	git remote add origin <GitHub_URL>
+Creates local repository	Yes	                     No (requires existing local repository)
+Downloads files	            Yes	                     No
+Creates .git folder	        Yes	                     No (assumes existing .git folder)
+Connects to remote repo	    No 	                     Yes (adds a remote reference)
+
+
+
+To push to code:
+command: git push -u origin master/main (varies based on default main branch name) 
+
+-u:creates association with our local code  and upstream local repository. This uses for the first push command exeuction 
+
+It pushes your local repository to the remote repository using  the u flag or the u option, which basically links up your remote 
+and your local repositories. And then we're going to push it towards the remote that's called origin, and we're going to push 
+it to the branch that's called master/main.
+
+ Command  "git rm --cached -r ."
+ Instructs Git to remove files and directories from the staging area (also called the index) 
+recursively, but it leaves the working directory files untouched. Let's break down the components of the command:
+
+* `git rm`:  This is the core command used to remove files from Git's version control.
+* `--cached`: This flag tells Git to operate only on the staging area. Files staged for commit will be removed from the index, 
+              but the actual files in your working directory will remain unchanged.
+* `-r`: This flag enables recursive mode. When removing files, Git will also remove any files and subdirectories within the 
+        specified directory.
+* `.`: The dot (.) symbol represents the current directory. In this case, it tells Git to apply the removal operation to the 
+       current directory and all its subdirectories.
+
+Here's what the command does:
+
+1. It identifies all files and directories within the current directory (and its subdirectories) that are currently staged for 
+   commit (present in the index).
+2. It removes those staged files and directories from the staging area. This means they will no longer be included 
+   in your next commit.
+3. However, it does not delete the actual files or directories from your working directory. They will still be present 
+  on your local machine.
+
+Use Cases:
+
+There are a few situations where you might use this command:
+
+* Accidentally staged unwanted files: If you've mistakenly included files or directories in the staging area that you don't want 
+                                      to commit, you can use this command to remove them from the index without deleting them 
+                                      from your local machine.
+* Cleaning up the staging area: Before making a commit, you can use this command to ensure only the intended files and directories 
+                                are staged. This helps maintain a clean and focused commit history.
+* Preparing for .gitignore changes: If you're adding new patterns to your `.gitignore` file and want to ensure existing untracked 
+                                    files that match those patterns are also removed from the staging area, 
+                                    this command can be helpful.
+
+Important Considerations:
+
+* Be cautious when using this command, especially with the `-r` flag, as it can unintentionally remove a large number of files 
+ from the staging area. It's recommended to double-check what's staged before running the command.
+
+* This command doesn't affect unstaged changes.  If you have modified files in your working directory but haven't staged them yet, 
+  this command won't touch them.
+
+In summary, `git rm --cached -r .` is a powerful tool for managing your staging area in Git. It allows you to remove 
+unwanted files and directories from the index without affecting the actual files on your local machine. 
+Use it strategically to keep your commits clean and focused.
+
+
+
+gitignore:
+A .gitignore(the dot at the beginning is important) file is a special text file used with Git version control. It tells Git which 
+files and folders to ignore,  preventing them from being tracked and accidentally committed to your Git repository. 
+Here's a breakdown of its purpose and benefits
+
+Command:
+    To create a gitignore file in VS code terminal is: touch .gitignore
+    
+    To open gitignore file in VS code terminal is: code .gitignore
+
+URL: https://github.com/github/gitignore . so this is a repository owned by the GitHub team. They have a repository called gitgnore, 
+and it's basically a pre-made collection of useful gitignore templates. Means , you don’t have to start from scratch every 
+A .gitignore file contains patterns that tell Git  to ignore certain files or directories. The general idea is that you can use that .gitignore to exclude
+in git push to Remote repository.
+
+
+"The sentence refers to one of the key concepts in Git version control: the independence of local and remote repositories"
+
+So in our case, the local repository is the git file that we've got inside our webDev directory, and the remote repository is GitHub, 
+which hosts our code and also hosts all of the changes that were made in between the different commits.
+
+Local Repository:
+
+- A local repository is a copy of your project's files and Git history stored on your own computer. It's where you make changes, 
+  commit them, and manage your project's version control locally.
+
+Remote Repository:
+
+- A remote repository is a copy of your project (including the version history) hosted on a server, typically on platforms like GitHub,
+  GitLab, or Bitbucket. This allows collaboration with others, as they can clone (download) the repository and contribute changes.
+
+Working Independently:
+
+- The key takeaway is that these two repositories (local and remote) can exist and function independently. You can:
+    - Work on your project locally, making changes and committing them to your local repository, without needing an immediate 
+      connection to the remote repository.
+    - Manage your local commits, branches, and version history independently, even if the remote repository exists.
+
+Benefits of Independence:
+
+- This independence offers several advantages:
+    - Offline development: You can work on your project and commit changes even without an internet connection.
+    - Flexibility: You can experiment with changes locally without affecting the remote repository until you're ready to share.
+    - Organization: You can manage your local commits and branches before pushing them to the remote repository, keeping 
+                         the remote repository clean and organized.
+
+Collaboration:
+
+- While they can function independently, local and remote repositories are typically used together for collaboration. 
+  Here's the workflow:
+    1. You clone (download) the project from the remote repository to create your local copy.
+    2. You make changes and commit them to your local repository.
+    3. When ready to share your work, you push your local commits to the remote repository.
+    4. Other collaborators can pull (download) the latest changes from the remote repository to their local copies.
+
+Summary:
+The ability to have a local repository independent of a remote repository provides flexibility and control during development. 
+It allows you to work offline, manage your project locally, and ultimately collaborate by sharing your 
+work with the remote repository.
