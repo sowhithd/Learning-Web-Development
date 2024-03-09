@@ -94,7 +94,8 @@ to any files/folders will be  associated with that particular branch.
 Use git clone when you want to download a fresh copy of a remote repository to your local machine and start working on it.
 Use git remote add when you already have a local Git repository and want to establish a connection to a remote repository on GitHub for pushing and pulling commits.
 
-
+Git Merge:
+command: git merge <branch_name>
 
 Feature	                  git clone <GitHub_URL>	git remote add origin <GitHub_URL>
 Creates local repository	Yes	                     No (requires existing local repository)
