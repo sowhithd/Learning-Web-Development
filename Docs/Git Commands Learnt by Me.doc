@@ -79,9 +79,17 @@ Command: git clone <GitHub_URL>
 
 * You can then start working on the project by making changes to the files and committing them.
 
+Git Branch:
+To create a new branch:
+command: git branch <new_branch_name>
 
+To check  out (switch) to that new branch:
+command: git checkout <branch_name>
 
-
+To see list of Branches:
+command: git branch
+In the command outupt , the * will be next to the current branch. It means that is branch is selected currently and changes done 
+to any files/folders will be  associated with that particular branch.
 
 Use git clone when you want to download a fresh copy of a remote repository to your local machine and start working on it.
 Use git remote add when you already have a local Git repository and want to establish a connection to a remote repository on GitHub for pushing and pulling commits.
