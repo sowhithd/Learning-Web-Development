@@ -126,6 +126,7 @@ recursively, but it leaves the working directory files untouched. Let's break do
 * `.`: The dot (.) symbol represents the current directory. In this case, it tells Git to apply the removal operation to the 
        current directory and all its subdirectories.
 
+
 Here's what the command does:
 
 1. It identifies all files and directories within the current directory (and its subdirectories) that are currently staged for 
