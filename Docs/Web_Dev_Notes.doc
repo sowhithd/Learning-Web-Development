@@ -1,0 +1,832 @@
+Ueful Extension for browser for coding and other Purpose:
+
+HTML Tree Generator: Which gives the DOM Tree of a website
+MERlin: AI tool used for all purposes.
+Selecttext: Which helps to copy content from a video
+Pesticide for Chrome: Helps us to know about HTML and css details for a website(hint: From keyboard press ctrl and hover on the context to know details)
+
+
+HTML: HyperText Markup Language
+
+HyperText: 
+* It refers to the pieces of text which can link other documents in the website.
+* These pieces of text are hypertext/hyperlinks, they are the foundation of how HTML website works.
+* Consider a example in browser has the hyperlinks onClick of that the page connects to other
+  HTML document/file.
+
+Markup Language:
+* In English Language we ofen see like below
+  "This is quote"
+  like this double quotes which acts as similar to Markup. The presence of the quotation marks tells
+  a reader that this is a quotation.
+* Similar in HTML Markup Language is achieved through HTML tags.
+
+Note: Breif about HTML tags added in project folder "HTML tags screenshot".
+
+Difference b/w Tag and Element:
+
+Ex: <h1>Hellow World</h1>
+
+Tag:
+We call h1 as tag. Anything that is inside in an Angle bracket we call these Angel brackets is a tag.
+<h1>: called "Opening tag"
+</h1>: called "Closing tag"
+
+Element:
+The entire h1 tag and content added b/w the Opening and Closing tags. Called HTML Element.
+
+Void Element:
+It is an element where we are forbidden from putting any content inside the tag.
+Ex: <hr/>, <br/>
+
+
+Characters or symbols such as the less than sign (<) or greater than sign (>) are known as reserved 
+characters in HTML. 
+
+You cannot directly use these reserved characters in HTML codes because the browser may 
+interpret them as tags. 
+
+Therefore, in order to use such reserved characters in HTML codes, you must include "character entities". 
+
+Apart from the reserved characters, you can use character entities in HTML codes to represent currency, 
+mathematical, or technical symbols that are not there on your keyboard.
+
+Character entities are also known as HTML entities. 
+
+Each entity is identified with a name and number. 
+
+Entity names are case sensitive. 
+
+The syntax to write a character entity is as follows:
+&entity_name;
+OR
+&#entity_number;
+
+-----------------------------------------------------------------------------------------------------------------
+In a single HTML page, you can use all the three ways of Cascading Style Sheets (CSS) - inline styling, internal style sheet, and external style sheet. However, there is a defined order in which the CSS is executed.
+
+Inline styling has the top precedence. The browser will first apply the inline styles in case of conflict or repetition of styles.
+External style sheet has the second precedence.
+Internal style sheet has the lowest precedence.
+
+Consider this example. A HTML page has an internal style sheet where you have defined the background color 
+of the page. 
+For the same page, you have defined another background color using inline styling for the <body> tag. 
+You have also defined another background color for the page in the external style sheet.
+
+On executing the page, the inline styling will take the top precedence, followed by an external 
+style sheet, and finally the internal style sheet. 
+Thus, the final background color of the page will be set according to inline styling.
+
+
+
+
+CSS:
+
+* One pixel is about 1/96th of an inch.(1px = 1/96th of an inch = 0.26mm)
+
+* One point is about 1/72nd of an inch.(1pt = 1/72nd of an inch =0.335mm)
+
+* 1em(pronounce as m) is 100% of parent tag width.
+  * 1em is defined as the full width of an M.
+  The letter M is probably one of the widest letters in the English alphabet, 
+  and this unit simply represents that entire width.
+
+* 1rem is 100% of root element tag.
+
+* sans serif  is a generic font typeface. It is simply the type of font where all the edges are pretty much at right angles.
+
+* If you see decorative lines or tapers (also commonly referred to as “tails” or “feet”). 
+  Then very often what you're looking at is a Serif  genetic font typeface.
+  When you're choosing a Serif typeface you're making your design look more serious, more authoritative 
+  and also a little bit older as well.
+
+* Having this generic typeface. This means that when you have this set that Mac users will see this font, 
+  but Windows users will see something that's relatively equivalent and it will be automatically displayed for them when it doesn't work.
+
+* The full form of vh is "viewport height". It works like the percentage unit as well. 
+   Specifying 10vh is equivalent to occupying 10% of entire visible screen height.
+   If we mention 50vh means 50%, which will cover half of the entire screen height.
+   (50vh === 50%)
+
+* The full form of vw is "viewport width". It works like the percentage unit. 
+  Specifying 10vw is equivalent to occupying 10% of entire visible screen width.
+  If we mention 50vh means 50%, which will cover half of the entire screen width.
+   (50vh === 50%)
+
+
+
+Based on the way the Cascade works.
+
+There are four broad categories which we look at when we're determining the overall level 
+of importance of css rule.
+
+Example Order mentioned below is the last applied rule to an element:
+
+Position:
+Ex:
+li {
+  color:Red;
+  color:green
+}
+green color is the applied rule for the element.
+
+Specificity:
+Ex:
+li {color:blue}
+.first-class {color:Red}
+li[draggable] {color:purple}
+#first-id {color:orange}
+
+Type:
+Ex:
+<link rel="stylesheet" href = "./style.css">
+<style></style>
+<li style="">Hello</li>
+
+Importance:
+Ex:
+color: red;
+color: green !important
+
+
+CSS Position:
+
+Static:
+  * Static positioning, and this is actually the default.
+  * As soon as you insert any piece of HTML by default, they're going to have this particular 
+    positioning applied to them.
+
+Relative:
+  * Relative positioning takes the static position and then you can move it relative to that location.
+  * It's relative to its supposed location.
+
+Absolute:
+  * Position Relative to nearest positioned ancestor. 
+    If the above rule didn't match criteria it goes with below rule 
+  * Top left corner of webpage.
+  * The tricky thing about the absolute positioning is you have to make sure if you want 
+    it positioned relative to another item, you have to set that ancestor to have position relative. 
+    Otherwise it's goingto default to positioning relative to the top left of the web page.
+  * In Absolute Positionning the element moves up and down if you scroll.
+  * Z-index: Everything on screen has a default Z index of zero.
+
+Fixed:
+  * Position that is going to be relative to the top left corner of the browser window.
+  * Similar to Absolute positioning it default to top left of webpage but its going 
+    to be defaulted to browser.
+  * That means is that even if you scroll up and down on the web page, it's still going to be
+    located in the same location relative to the browser. 
+
+ Css Display:
+ 
+ When we set "display property to none", then what that's going to do is it's going to make 
+ any element on the screen basically disappear.
+ 
+  inline:
+  * Important things to remember about elements which are inline in their display is you
+    can't actually set the size of these elements.
+  * You can't set the width and the height.
+  * If we had a much longer sentence then your inline element would stretch to fit that size.
+
+block:
+  * When an element has display set to block, then it's going to take up the entire full width.
+  * Now, this means that if you have another element, then it's going to go below it and 
+    it's not going to go onto the same line.  
+
+inline-block: 
+  * As element has this inline-block then block aspect allows us to set the height and width.
+    And the inline aspect of the setting allows us to have elements that go on to the same line.
+
+
+CSS Float:
+* Is to wrap text around a particular element.
+
+Flex:
+* The main idea behind the flex layout is to give the container the ability to alter its items’ 
+  width/height (and order) to best fill the available space (mostly to accommodate to all kind 
+  of display devices and screen sizes). A flex container expands items to fill available 
+  free space or shrinks them to prevent overflow.
+* Flexbox is really good at is allowing you to create 1D layouts, whether if you want everything
+  laid out as boxes on the horizontal or if you want everything laid out vertically as boxes on 
+  the vertical, then you're probably going to be using Flexbox for this.
+
+* By default, this flex direction is set to row
+* It's going to be stacked on one after the other onto the same row until there 
+  is no more space and it's still going to try and continue to stack 
+  it from left to right in Flexbox.
+* Flexbox provides one of the easiest ways to center an item inside another container.
+* when you have a flex direction set to row, then you're setting something called the main
+  axis. (It's going from left to right and it's on the horizontal)
+* The cross axis goes perpendicular to the main axis, means in this case where flex direction 
+  is from "top to bottom".  
+* The algorithm essentially that Flexbox uses to determine each of the flex items size 
+  is based on piority list
+  pattern: Content Width < Width < flex-basis < min-width/max-width (starts from right to left)
+    * Intially if we nothing set on flex item algorithm will default max width and min width 
+      that's set based on the content. This is called Content-width.
+    * The default for flex basis is actually auto before applying width it's going to look at the 
+      amount of content in each of the items and it's going to apply more flex basis to the items with more content.
+    *  We can also manually set each of these properties and completely ignore the text content.
+    * Few Scenarios:
+          Max-width:
+          * Let's say that we had a flex basis of 200 pixels set on each of the items, 
+            but we go ahead and also set a maximum width of 100 pixels. 
+            {
+              flex-basis: 200px;
+              max-width: 100px
+            } 
+            In this case the width applies to items is 100px even as per alogrithm piority flex-basis
+             should be applied. Due to the value of max-width is smaller than flex-basis.
+
+            But if the flex basis was smaller than the max width, for example, 
+            if we had a flex basis instead of 200, it was 50 pixels.
+            {
+              flex-basis: 50px;
+              max-width: 100px
+            } 
+            Well then in this case each of the items will actually be 50 pixels.
+            Instead, the maximum width it will be flex-basis.
+          Min-width:  
+          * Let's say that we had a flex basis of 200 pixels set on each of the items, 
+            but we go ahead and also set a minimum width of 300 pixels. 
+            {
+              flex-basis: 200px;
+              min-width: 300px
+            } 
+            It's actually going to apply the minimum width, even though we have a flex basis
+            because the minimum width is larger than the flex basis.
+
+
+Grid:
+* GRID is something that applies to 2D layouts, where you've got columns and you've got rows.
+* The default behavior for a grid container is to try and take up the full width of the window, 
+  but only have as much height as it allows to fit the content so we don't have to change the height.
+* When we create and size our grid, we create rows and columns these are collectively known as "tracks".
+* We have row tracks and column tracks. And we usually create and size these tracks using 
+  grid template rows or grid template columns.
+* Within the intersections of the tracks. We create small units which are called a "grid cell".  
+  They are the smallest unit in a grid and they can be different sizes.
+* We have horizontal lines and vertical lines, and those are called the grid lines.
+* We can only control the grid lines by using that "Gap property" to specify its height or width.
+  The use of "Gap property" is we don't have to use padding or margin to separate the items in our grid.
+* By default, our grid is going to lay out our items into the unoccupied cells, one item per cell.   
+* By default, each of the grid items inside a grid container by default have a order of zero.
+* And for the order property the grid item direction goes from left to right and then top to bottom.
+* Important to keep in mind when you're using grid area is if you're going to use grid area 
+  on a particular item. Then for all rest items grid area property to be used to keep the all
+  align correctly.
+
+
+
+  CSS BootStrap:
+  Layouts:
+  * The most powerful features of Bootstrap, which is the 12 column layout system.
+  * The 12 column system is made of three components.
+      * Firstly, we need a "div that has a class of container" and this is going to be the starting point.
+      * Second for that container class div, we need another div which is going to be of class row.
+      * Inside row is where we will have our items and they will be laid out using the column system.
+ Ex:
+  <div class="container">
+    <div class="row">
+        <div class="col">Hello</div>
+    </div>
+  </div>     
+  
+  * When you have multiple columns laid out inside the row, automatically Bootstrap will try to give 
+    every column inside the row equal spacing and space them across the entire width of the container.
+  
+  * One of the great things about bootstrap breakpoints(See in important images folder "Bootstrap breakpoints details img") 
+    is we don't really need the media queries as much because this covers pretty much a lot of the different device dimensions 
+    and we don't have to manually write all the pixel sizes and add media queries into our CSS.
+
+ * col class by default is going to take up 100% of the width in the small sized screen.   
+
+BootStrap Layout Excersise:
+https://appbrewery.github.io/bootstrap-layout/
+
+Answers:
+1). <div class="col-xl-6 ">50% desktop, 100% mobile</div>
+    <div class="col-xl-6">50% desktop, 100% mobile</div>
+
+2). <div class="col-lg-6 col-sm-12 col-10">Column 1</div>
+    <div class="col-lg-3 col-sm-6 col-10">Column 2</div>
+    <div class="col-lg-3 col-sm-6 col-10">Column 3</div>
+
+3). <div class="col-xl-2 col-lg-4 col-md-6">Column 1</div>
+    <div class="col-xl-10 col-lg-8 col-md-6">Column 2</div> 
+
+
+
+User Interface (UI):
+As per user the content in the website should be easily understandble by highlighting the important points
+To achieve that we can follow the below rules:
+1). Hierarchy:
+  -- We can establish hierarchy in a number of ways. The most obvious is through the use of color.
+  -- Now in addition to color, you should also think about size because the bigger items often draw your eyes to it.
+2). Layout:
+  -- In addition to establishing hierarchy in terms of user interface, we should think about the layout of the website.
+  -- We want to aim for something around 40 to 60 characters per line so that it feels comfortable to the user and they'll 
+     be able to get through the information and still be interested in your website.
+3). Alingment:
+    -- This has to do with how you position each of the elements on the screen relative to each other.
+    -- One of the easiest ways of making any sort of design you create look professional is just to reduce the number 
+       of alignment points.     
+4). White Space:
+    -- It is important concept in design. It refers white space that's aroung text/ elements.
+    -- By adding that space around each element on the screen you can make your design a lot more minimalist 
+       and at the same time elevate it.
+5). Audience      
+
+
+User Experience (UX):
+* We often think of having an aesthetic (concerned with beauty), what we think looks good and enforcing that on the user. 
+  Now user experience is meant to be invisible.
+* If you have a good experience with a website it just lets you do your thing and it feels like as if everything 
+  is easy and everything is effortless.
+* Now some designers though use the knowledge they have about human psychology and User Interface and
+  User Experience design to do bad things. And in the design world, we call these "dark patterns". 
+  So patterns which get a user to perform an action or behavior that is beneficial to the company or the designer 
+  but it's not necessarily what the user wants. And it is another form of bad user experience.
+
+1). Simplicity:
+  -- Keeping things simple is always better than making it more complex or more cluttered.
+  -- Whenever you're having to choose, should I make it more complex or should I make it more simple,
+     always try to pare it down(it has unnecessary features, and has been reduced to a very simple way).
+2).Consistency:
+  -- Keep your designs consistent but also keep the functionality of your product consistent.
+
+3). Reading Pattern:
+  -- "One of the most common reading patterns is what's called the "F-pattern" where the eye starts at the
+     top left of the corner and then it tracks the right and then it flips back again".
+  -- We can this pattern using "F-layout". So, have the most important parts of your content on the left gutter, 
+     have the logo at the top and have everything follow this pattern.
+  -- Another really common pattern for reading is the "Z-layout" where our eyes go from left to right and then
+     zigzagging down all the way the website.
+  -- This depends on the type of website for ex: If somebody is trying to browse a website a little bit faster seems to be
+     using the "Z-layout" pattern. This is pretty famously used in Facebook.
+  -- Using that Z-pattern to accommodate for people's natural reading pattern.         
+
+ 4). All PlatFrom Design:
+   -- Now in today's day and age, it's really important to think about All Platform Design.
+   -- It's not enough anymore to just design a website that's meant to go into a desktop computer.
+      Instead you have to think about mobile as well. 
+   -- So having a website that scales up nicely onto mobile, what we call mobile responsive, is really important and vice versa. 
+   -- And try to avoid  pet peeves (something that a particular person finds especially annoying.) in terms of design 
+      which is having so many banners on your website that show up on the mobile version that your content becomes impossibly small.
+
+
+* There's a website called Daily UI which gives you a task to design every day for 100 days.  It's free to sign up and 
+  it's something that really does improve designing skills by just that repeated practice.
+  URL: https://www.dailyui.co/ 
+
+
+
+CDN:
+ * Which stands for Content Delivery Network. These are little hubs all across the entire world and it knows where your users are located.
+ * When they load up your website and try to access this particular files that contains all of the content.
+ * Then it can find the closest location with the shortest distance to the server that has that content.
+ * That means even though this has to be downloaded from somewhere, it can be delivered to your user and rendered very, very quickly.
+ * From developers point of view as , all we need to do is simply include this link into the header section of our HTML.    
+
+JavaScript: 
+
+* Brendan Eich created JavaScript in 10 days. Initially it was called "LiveScript". Later Europeans decide to strandardize the language and
+  called "ECMA (European Computer Manufactures Association) Script".
+* JavaScript is a Interpreted Programming Language. Ex: JavaScript, Python, Ruby.
+
+What is Middle-Squares Method?
+The middle-square method is a simple way to generate random numbers. It involves creating an n-digit starting value, squaring it, 
+and then returning the middle n digits as the next number in the sequence.
+
+Math.randon() function generates 16 digit decimal number, and it can be any number between 0 to less than 1.
+
+Important to remember in Array is
+array.push() => It always pushes the item that you have into end of array. It doesn't push it in randomly into the array or at the
+                begining of the array. This is a really easy way of adding items into array as needed.
+
+array.pop() =>    It always take the last item and it will remove it from the array.
+
+
+Document Object Model (DOM):
+ * It basically catalogs the web page into individual objects that we can select and manipulate.
+ 
+ * The task of converting an HTML file into the DOM is done by the browser when you load up the web page. And what it does 
+   is that it turns each of these elements and their associated data into a tree structure with a whole bunch of 
+   objects that you can select and manipulate.
+
+*  A tree model is usually how you'll see the DOM represented. You can see that all of the elements 
+   in our HTML has been converted into objects, and their relationships to each other mapped out in the tree diagram.
+
+*  Entire tree is contained inside an object called the document.
+
+*  Objects inside the DOM can have properties and methods. Now properties describe something about the object and the methods 
+   are the things that the object can do. 
+
+
+
+Seperation of Concerns:
+
+When we are writing code for websites, in order to keep our code tidy and easy to debug, we have to keep in mind the idea 
+of the separation of concerns at all times. And what this means is that: 
+* HTML is for content only. 
+* CSS is there to style your website 
+* JavaScript is there for behavior.
+
+
+
+Higher Order Functions:
+Higher order functions are functions that can take other functions as inputs.
+
+Ex:
+function add(num1, num2) {
+ return num1 + num2;
+}
+function multiply(num1, num2) {
+ return num1* num2;
+}
+
+//Here opeator parameter take other functions as input
+function calculator(num1, nun2, operator) {
+ return operator(num1, num2);
+}
+
+//function call:
+calculator(2,3,add);
+calculator(4,5,multiply);
+
+
+
+jQery:
+* John Resig known as the creator and lead developer of the jQuery JavaScript library.
+
+* Most popular option across the web/internet is to use Google's CDN (https://developers.google.com/speed/libraries#jquery).
+
+* The beauty of using a popular CDN is that "if a user opened an another website that uses the same CDN which you have added to your 
+  website to fetch the jQuery library, then they'll likely have it already cached and saved in their browser, which means that 
+  when they want to load up your website they won't have to fetch a fresh copy of jQuery, they've already got it loaded and ready to 
+  use the same downloaded one, giving your web site a much faster load rate.
+
+* The on() method is used to attach one or more event handlers for selected elements. It provides a way to attach event handlers 
+   for various types of events such as click, hover, keypress, etc., to elements in the DOM. 
+
+* The on() method also allows attaching event handlers to dynamically added elements, which is particularly useful 
+  when working with dynamically generated content.
+  Syntax: $(selector).on(event, childSelector, data, handler);
+   
+  * event: Specifies the event to attach the handler for (e.g., "click", "keypress", "mouseenter", etc.).
+  * childSelector (optional): Specifies a selector for filtering descendant elements that trigger the event.
+  * data (optional): Data to be passed to the event handler as event.data.
+  * handler: A function to execute when the event is triggered. This function receives the event object as its argument.
+
+
+  Ex:
+   For <button id="myButton">Click Me</button>
+
+   
+    $(document).on("click",'button[id ="myButton"]',{param1: 'value1', param2: 'value2'} ,function(event){
+        // Accessing event data
+        console.log('Event Data:', event.data);
+        
+        // Accessing other properties of the event object
+        console.log('Target:', event.target);
+        console.log('Type:', event.type);
+        
+        // Your event handler code here
+        alert('Button clicked!');
+    });
+
+
+
+
+
+
+Bash Shell:
+* To understand the Bash shell, we first have to know what a Shell is
+* In Shell Kernel is the core, in computing kernel refers to the actual program that interfaces with the hardware. Sp, its core of the
+  operating system.
+* Now the Shell in computing refers to the user interface for you as a human to be able to interact with the kernel and in turn 
+  with the hardware of your computer.
+* There's two variants to the shell.
+  -- Graphical User Interface
+  -- Command Line Interface  
+
+* Now the one we are going to use "Bash Shell", it is a Command Line Interface for Unix system.
+* Bash Shell stands for "Bourne Again Shell". It is named after  Mr.Bourne.
+* With the command line, you have full control and you have a lot of flexibility.
+
+
+few Bash commands:
+cd ~        --> moves to root directory
+cd ..       --> moves one step back to parent folder
+cd '<Path>'  --> moves to mentioned Path
+cd <Directory_namae>: --> moves to the mentioned directory Ex: cd d:
+touch <file_nane> --> to a new file ex: touch test1.txt 
+start <file_nane> --> to open a  file ex: start text1.txt
+rm <file_name> --> to delete the file
+rm * --> to remove all files from directory
+rm -r <Directory_name> --> to remove the entire directory
+rm -rf <Directory_name> --> to remove the entire directory. In command 'f' means to do delete operation on Force it won't ask confirmation
+
+
+In Mac we use sudo before any command. "sudo means SuperUserDo".
+
+
+
+
+Node.js:
+* It's actually not quite a framework. 
+
+* It's, "An asynchronous event-driven JavaScript runtime.
+
+* Node.js is designed to build scalable network applications.
+
+Initially when JavaScript was created it was desined to run in  only browser. This means that it was impossible to use JavaScript 
+to write any kind of program that's not a website.
+
+Node Uses V8 engine which comes from chromium written in c and c++. It is fast and boost the chrome browser.
+
+When Node came long it effectively liberated the JavaScript out of browser and gave it the freedom to allow us to use it to 
+write any sort of application, desktop or server side.
+
+"Node provides us with this "JavaScript runtime" so that we can run JavaScript on a machine such as your own local computer, then 
+it means that we can use JavaScript to accomplish pretty much anything that other popular server side languages 
+like Ruby, PHP, C-sharp, Python can do, but maintaining our full JavaScript stack from frontend to backend."
+
+Asynchronous means that your JavaScript code doesn't have to do everything sequentially.
+
+ Node, on the other hand, is asynchronous and it's event driven, so it means that you can add the code blcok to an event and we
+ can initiate that code block when the event is triggered.
+
+ "In summary, the reason why we need Node is because it allows us to build an application often on a computer using JavaScript."
+
+ Why are we choosing Node?
+
+ * Well, the reason is because if we use Node, which is one of the most popular choices as of today, then it means that our 
+   frontend could be written in JavaScript plus HTML and CSS of course, but our backend could also be written in JavaScript,
+   and this allows us to use one language to rule them all.
+
+* So the key benefits of Node.js are the fact that it allows us to use JavaScript across the entire stack, which means that 
+  developers are using a language they're already familiar with, and it makes it easy for them to transition 
+  from frontend to backend developer. 
+
+ * Node.js allows for easy Scaling of applications, making it really good for large-scale professional projects.
+
+ * It's fast and it's Non-blocking. Because of this asynchronous event-driven nature of Node.js, it can be really fast 
+   and really efficient, instead of having to wait for things to happen or blocking the resources.
+
+
+   Node REPL:
+   REPL stands for Read Eval Print Loop.
+   * It is a computer enviornment where user inputs are read and eveluated, and then the results are returned to the user.
+     For ex: In node runtime environment where we can put in user inputs in the form of code, and what we write is read by the 
+              computer and evaluated line by line, and then it prints out the result back to us in the command line or in the console
+   
+   * This is not unique to Node. It's something that we can do with most programming languages.
+
+   * In node to initiate REPL. All we have to do is to type the command "node".
+
+   In Webiste https://nodejs.org/docs/latest/api/fs.html. If we notice for any example code snippet has a toggel button called "CJS and ESM".
+   
+   CJS: CommonJS, this was the method using, "require" that we used to use to get hold of Node modules, native node modules 
+        or even NPM modules. 
+   Ex: const fileSystem = require("fs");
+   
+   ESM: ECMAScript modules
+        Since version 12 of Node, we've moved on a little bit, and Node is now enabled to use ECMAScript  modules.
+        So instead of using require, we can use the "import" keyword.
+  Ex: import * as fs from 'node:fs';    
+
+  In JavaScript, ES modules, also known as ECMAScript modules, refer to the official standard format for packaging and organizing code.
+  They offer a structured and modular way to break down your codebase into reusable units, promoting better code organization, 
+  maintainability, and collaboration. Here's a comprehensive explanation of ES modules:
+   
+Key Features and Benefits:
+* Import and Export Statements: 
+    ES modules rely on import and export keywords to define dependencies between modules:
+      * import: Used to import functionalities or variables from other modules.
+      * export: Used to export functionalities or variables from the current module to be used by other modules.
+* Static Scoping: 
+    ES modules adopt static scoping, which means variables are declared within a specific module and are not accessible from outside 
+    that module unless explicitly exported. This helps prevent naming conflicts and unintended side effects.
+* Dependency Management: 
+    ES modules inherently promote improved dependency management, as modules explicitly declare their dependencies through imports, 
+    making it easier to track and identify dependencies within your codebase.
+* Improved Reorganization: 
+    With modular code, you can easily rearrange or remove modules without affecting other parts of your application as long as 
+    dependencies are managed correctly.
+Bundling and Transpilation: 
+    ES modules are compatible with bundlers like Webpack, which can combine multiple modules into a single file for efficient browser 
+    loading. Additionally, they can be transpiled (converted) to a format compatible with older JavaScript environments that 
+    don't support modules natively.
+
+Comparison with CommonJS:
+* Prior to ES modules, CommonJS was a widely used module format in Node.js. However, it had limitations like dynamic loading and 
+  potential naming conflicts.
+
+* ES modules address these issues, offering a more standardized and consistent approach to modularity.
+
+Current Ecosystem Support:
+* All modern browsers and Node.js versions (starting with Node.js v12.10.0) natively support ES modules.
+* For older environments, transpilers like Babel can be used to convert ES module code to a compatible format.
+
+
+ Node Package Manager/NPM:
+   * Basically a place which collects modules that people have built for Node and it's created by the GitHub organization and 
+     it's a really great place to find code that other people have written with utilities and tools to help you with 
+     writing your Node applications.
+
+  *  NPM is kind of like a community tool library.
+  
+  * It's open source (https://www.npmjs.com/) and you can search to find all the packages that other developers have created, little
+    tools that they've written the code for, that they think might be useful for other developers in the future, so that you 
+    don't have to duplicate the work and to write everything from scratch.
+
+  * NPM comes pre-bundled with Node, so if you have Node installed, you will also have NPM installed.  
+  
+  * npm init: This command brings up the initialization utility, which is going to help us create our configuration file, which is 
+              called the package.json.
+
+   * npm init -y: we are telling in command yes to every single question in that initialization script to create in Package.json.          
+  
+  * Package.json comes from NPM but effectively acts as a configuration file for our project.
+
+  * To use the "import" keyword in our js pages. We need to configure that setting in package.json 
+    page and the setting is "type:"module".
+  
+  * If we don't specify the setting the commonJs will be the default configuration for the project.
+
+
+ExpressJS:
+
+* Express Framework, the framework that's built on top of Node that's going to help us create our backends with ease.
+
+* It  is actually a JavaScript framework that allows us to create backends for our websites.
+
+* It uses JavaScript and Node to create a website in backend,  but it is souped up(having increased power and efficiency ) and it
+  makes the whole thing so much quicker and so much easier.
+
+* Localhost is simply when we don't have a server on the internet and instead we want to host our server locally, so making 
+  our own computer the server for our website's backend. And that is the local part of our hosting.  
+
+* The port is kind of equivalent to a bunch of doors on our server computer, and each of these doors have an address.  
+
+* Command used to check which ports on our computer are currently  listening for interactions from the outside 
+  command: netstat -ano | findstr "LISTENING"
+
+* Here every time when we make some changes in js page we need to stop and start server again. Instead what we can do is we can
+  use one of the node-module called "nodemon". This will restart the server automatically when it detects any changes done in js page.
+  And will install it globally "node i -g nodemon". Then just type "nodemon app.js" instead of "node app.js".
+
+Hyper Text Transfer Protocol:(HTTP)
+* Basically describes this as a language, a language that allows computers to talk to each other across the Internet. 
+* Details about status code available in here : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+
+
+MiddleWare:
+
+* It kind of is something that just sits in between the raw requests that come in.
+
+* When a request comes into the server and before it gets processed by all of the route handlers, such as our GET, POST, PUT, 
+  the functions that we've planned for how to deal with a particular request there is something in between namely the 
+  Middleware that can work with these requests before they get processed and reach their final destinations.
+
+* When we know that a request is going to go to multiple handlers, maybe it could be processed by GET, POST or PUT, this intermediate 
+  stage where we have our middleware can actually go ahead and change aspects of the request or perform various functions 
+  on that request before it goes to its final routing.
+
+* We can use Middleware for
+  * For Logging the request
+  * To Authenticate the request
+  * Can Process any errors in the request.
+
+* Commonly used middleware in Node and Express back-end engineering are:
+  * "Body Parser"(https://www.npmjs.com/package/body-parser). Body-parser used as middleware to parse the information 
+     that comes from HTML forms. 
+  * Commonly used logging middlewares for Node is a package called morgan (https://www.npmjs.com/package/morgan)
+
+
+Embedded JavaScript(EJS):
+* A popular template engine for Node. js and web development. 
+* It allows you to generate dynamic HTML content by embedding JavaScript code within your HTML templates.
+* Well, essentially it's almost like having a little JavaScript module that can run JavaScript code inside a HTML file, 
+  and it ends with the .ejs file extension.
+
+Ex of index.ejs file:
+<body>
+  <ul>
+    <% for(let i=0; i<items.length; i++) { %>
+    <li>
+      <%= items [i] %>
+    </li>
+    <%} %>
+  </ul>
+</body>
+
+
+* To got the ejs intelligence window while writing code add the "EJS language support" extension in vscode application.
+
+* locals is, is basically a way to access all of the variables that get sent over with a res.render.
+
+Ex: 
+code in index.js file, we are not passing any data in get method. Need to handle that null/undefined issue
+
+
+app.get("/", (req, res) => {
+  headingtext = "Enter Your name below";
+  res.render(`${__dirname}/views/index.ejs`);
+});
+
+app.post("/submit", (req, res) => {
+ var fullNameLength;
+
+  if(req.body['fName'])
+     fullNameLength = req.body['fName'].length;
+  if(req.body['lName'])
+    fullNameLength += req.body['lName'].length;
+
+    headingtext = `There are ${fullNameLength} letters in your name`;
+    
+    res.render(`${__dirname}/views/index.ejs`,{numberOfLetters:fullNameLength});
+});
+
+
+
+locals is, is basically a way to access all of the variables that get sent over with a res.render. 
+
+using the keyword locals we can get that get sent over with a res.render. 
+
+code in ejs file:
+Ex:
+<% if (locals.numberOfLetters) { %>
+    <h1>There are <%= numberOfLetters %> letters in your name.</h1>
+    <% } else { %>
+    <h1>Enter your name below 👇</h1>
+    <% } %>
+
+
+
+ * Normally what happens with Node-based backends is we create a public folder where we add in all of our static files, so maybe we 
+   can put our images in there, our styles in there, our favicons, basically any file that doesn't change.   
+
+ * In order to tell Express that is where our static files are located, we can use the middleware express.static and then 
+   define the location or the name of our public folder.  
+
+ * Basically once we've told Express where our public folder is, it will treat everything inside as a static file.
+   That means when we create our stylesheet links, the href will be relative to the location of the public folder.  
+
+ * We can use EJS for templating where we replace parts of our code using the EJS tags in order to insert bits of dynamic 
+   content into the actual body of our code.  
+
+
+API:
+* Well, it stands for an "Application Programming Interface", and it's essentially a set of rules and protocols that define how 
+  different software can interact with each other.
+
+* Normally, you will have a base URL, something something.com, and then you will have a forward slash (/) and an endpoint.
+  This endpoint can be different for different purposes.
+
+   Ex: https://bored-api.appbrewery.com/random
+
+* The next one is structuring a request is something called "Query Parameters". We've already seen the endpoint comes at the end of 
+   the base URL. So this is the base URL, this is the endpoint and then afterwards we can add a little question mark (?) to say that 
+   we are adding a query now to the end of this request.
+
+  Ex: https://bored-api.appbrewery.com/filter?type=education
+
+* Normally when you're hitting up an API, they're used for filtering, sorting, searching, and you can even have "multiple query 
+  parameters" by simply adding an ampersand (&) after the first query. So remember, very important thing is in order to begin your 
+  first query, you need a question mark and then you have your key: value pair, and then after the first pair, if you want to add 
+  more queries, you tag them on starting with an ampersand  
+
+  Ex: https://bored-api.appbrewery.com/filter?type=education&participants = 2
+
+
+* So after the base URL, normally comes the endpoint, but an endpoint is usually a fixed path. But we can also have 
+  something called "Path Parameters" where after a forward slash we can add some sort of parameter that does change, and this is 
+  usually to find some specific resource that exists. So it could be an ID, it could be a username, it's basically something that's 
+  very specific that can identify a resource in the API.
+
+   Ex: https://bored-api.appbrewery.com/activity/3943506
+
+
+
+ JSON:
+ * JSON stands for JavaScript Object Notation.  
+ 
+ * Online Json viewer: https://jsonviewer.stack.hu/ 
+ 
+ * It's a way to format data that can be sent over the internet in a readable but also efficient way. And as the name suggests, 
+   it's structured after a JavaScript Object.
+ 
+ * It is a string from the beginning to the end, and every single aspect of that notation is serialized so that it can be its minimal 
+   size when transferred across the internet. The syntax keeps all of the meaning and then when it gets transferred to the other side 
+   and when it needs to be used, it can then be re-expanded into a usable format such as a JavaScript object.
+
+ * To convert JS Object to JSON. we need to use  `JSON.stringify()` method.
+ 
+ * To convert JSON back to JS Object, we need to use `JSON.parse()`.
+
+Axios:
+Axios is promise based, so we can either use ".then" or we can use "async await" in order to handle the response.

@@ -104,6 +104,8 @@ Creates .git folder	        Yes	                     No (assumes existing .git f
 Connects to remote repo	    No 	                     Yes (adds a remote reference)
 
 
+* Forking is  just copying a repository that's hosted on GitHub and we're keeping the copy under our own GitHub account where we can make changes to it.
+
 
 
 To push to code:
