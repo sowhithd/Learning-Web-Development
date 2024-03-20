@@ -875,6 +875,54 @@ We can understand more by testing sample API's from here : https://secrets-api.a
    authentication.  
 
 
+REST API:(Representational State Transfer API)
+
+What makes an API RESTFUL:
+
+1). HTTP Methods:
+    Is use standard  HTTP Methods like GET, POST, PUT, PATCH, DELETE etc.
+    
+2). JSON Output:
+    It should probably have a standard data format that it responds with, meaning something like JSON format, XML format. Meaning  
+    API response is given back to client  is in JSON format that is pretty standard.
+    This is the Representation part of "Representational State Transfer". Resources are represented in a specific format like JSON, 
+    and that is sent in response to the client.
+
+3). Client - Server Architecture:
+    Clients and Servers in RESTful APIs are completely separate. They are not on the same system or in the same file and they're 
+    able to message each other over a network. In order to make requests and also to get back responses.
+    This part of the RESTful API architecture allows each side to be able to scale independently from each other and they can 
+    evolve and be completely built separately by different people, which means that the RESTful API allows the whole system 
+    to scale very easily.
+
+4). Stateless:
+    The next rule is "Statelessness". What this means is that each request from the client to the server should contain all the 
+    information that's needed to understand and process the request. So the server shouldn't be storing any sort of client side, 
+    state or client side data between the requests.
+    This means is that each single request can be completed, and each single response is also complete without need to know 
+    what happened previously.
+ 
+5). Resource-Based:  
+    The next is that your REST, the API is "resource-based", so it is an API that is centered around resources and uses a "Unique 
+    Resource Identifier, also known as a Resource Locator", so this is a URI or a URL, in order to locate specific resources.
+    A Universal Resource Locator(URL), is simply just an address for a particular resource, and it'sa type of a 
+    Universal Resource Identifier(URI). It identifies that resource in the API.
+
+
+All above five rules seems kind of familiar just seems like the "internet". If that is the answer then it is true,  because the 
+Internet as you know it, the World Wide Web is considered one of the most successful implementations of RESTful architecture.
+
+In Internet:
+* We have our resources located in URLs. So this is how we can identify what it is we want to access.
+
+* We work and interact with the server through an API using HTTP standard protocol, and the responses we get back are 
+  standard data formats such as JSON or XML, or JavaScript, or HTML
+
+* Also we have a strict client / server separation. So the client is the person who's using the browser and 
+  the server is the computer that holds all of the data that is needed to be served when somebody requests a particular web page.
+
+* Internet is pretty much Stateless. Every single request to a web page contains all of the information that's required 
+  in order to determine what web page to send back.
 
  JSON:
  * JSON stands for JavaScript Object Notation.  
