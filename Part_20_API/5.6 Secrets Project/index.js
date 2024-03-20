@@ -22,7 +22,6 @@ const port = 3000;
 app.use(express.static("public"));
 
 
-app.use
 app.get("/", async (req,res)=> {
     try {
         var result = await axios.get("https://secrets-api.appbrewery.com/random");
