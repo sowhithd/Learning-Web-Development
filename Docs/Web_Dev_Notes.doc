@@ -985,3 +985,28 @@ Axios:
 
     * The alternative is the more modern syntax which was introduced in 2017 as a part of the ES8 upgrade to JavaScript. And this 
       is formed by the "async and await keyword".
+
+
+
+ NoSQL/non-SQL:
+ * It is a database design approach that provides a way to store and retrieve data that's not modeled in the tabular relations 
+   used in relational databases.
+   
+   There are four types of NoSQL databases:
+   * Document databases: Store data as structured documents, such as PDFs, XML files, or JSON files
+   * Key-value stores: A type of NoSQL database
+   * Column-oriented databases: Designed to read data more efficiently and retrieve it faster
+   * Graph databases: Organize data into nodes, with edges establishing relationships between these data nodes
+ 
+ * One of the greatest things about NoSQL databases is you're able to change the structure of your data afterwards without 
+   having to change the entire database. 
+    * As an example we have data stored in JSON format related to user details. We can add an extra feild for only specific 
+      user, we can modify our data on the fly, and this is what gives "NoSQL databases their flexibility".
+
+  * Means it is not obliged to hold to the original structure of the table that was created at the time when you decided to 
+    build a users table.     
+
+  * Other thing that they really wanted to address is scalability. So for your data to be able to scale "horizontally(X-Axis) 
+    and vertically(Y-Axis). So vertically means having more records, and horizontally means having more fields".  
+
+  * Popular NoSQL databases we come across is MongoDB, Redis, DynamoDB (Run by Amazon).   
