@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Responsive Navigation Bar Challenge</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<!-- Write your code here -->
+
+		<!-- It is recommended that you copy paste the svg instead of importing it as a file in this html document -->
+
+		<!-- Copy/paste Lock, Google & GitHub Logo from the "assets" folder  -->
+		<h2>Sign in to <span id="title"> codedamn </span></h2>
+		<div class="container">
+			<form action="submit">
+				<div>
+					<label
+						for="Email address / Username"
+						style="display: block;"
+						>Email address/ Username</label
+					>
+					<input type="text" name="Email address/ Username" id="" />
+				</div>
+				<div class="gap">
+					<label for="Password" style="display: block;"
+						>Password</label
+					>
+					<input type="password" name="password" id="" />
+				</div>
+				<div class="user-support-section gap">
+					<div>
+						<input
+							type="checkbox"
+							name="RememberMe"
+							id="mememberme"
+						/>
+						<span>RememberMe</span>
+					</div>
+					<div>
+						<a href="/forgot">Forgot your password?</a>
+					</div>
+				</div>
+				<div class="gap">
+					<button class="signin">
+						<img src="./assets/lock.PNG" alt="lock" />
+						Sign in
+					</button>
+				</div>
+				<div class="optional gap">
+					<hr />
+					<span>Or continue with</span>
+					<hr />
+				</div>
+				<div class="optional-signin gap">
+					<button>Connect with Google</button>
+					<button>Connect with Github</button>
+				</div>
+				<div class="create-account-option gap">
+					<h4>
+						Don't have an account?<a href="/create"
+							>Create Account</a
+						>
+					</h4>
+				</div>
+				<div class="gap">
+					<p style="color:#979797;font-size: 12px">
+						The site is protected by reCAPTCHA and the Google
+						Privacy Policy and Terms of Service Apply
+					</p>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

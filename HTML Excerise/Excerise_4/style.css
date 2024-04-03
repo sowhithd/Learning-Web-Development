@@ -1,0 +1,29 @@
+.background-component {
+    height: 400px;
+    width: 250px;
+    background-color: cyan;
+    position: relative; /* Make it a relative position component */
+  }
+
+  .overlay {
+    position: absolute; /* Make it absolute positioned within the background */
+    top: 0;
+    left: 0;
+    width: 100%; /* Span the entire width and height of the background */
+    height: 100%;
+    background-color: #0000ff;  /*rgba(0, 0, 0, 0.5);  Set a semi-transparent black background */
+    opacity: 0; /* Initially hide the overlay */
+    transition: opacity 0.3s ease-in-out; /* Add a smooth transition on hover */
+  }
+
+
+  .background-component:hover .overlay {
+    opacity: 1; /* Show the overlay on hover */
+  }
+  
+  .background-component p {
+    color: white; /* Ensure text is visible on dark background */
+    text-align: center; /* Center the text within the background */
+    line-height: 400px; /* Vertically center the text within the 400px height */
+    margin: 0; /* Remove default margin for better positioning */
+  }

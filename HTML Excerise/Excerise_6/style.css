@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;600;&display=swap");
+
+body {
+	font-family: "Inter", sans-serif;
+	background-color:#f3f4f6 ;
+	margin:20px 20px;
+}
+.container{
+	background-color:white;
+	margin-top:10px;
+	display:flex;
+	flex-direction:row;
+	border-radius:8px;
+}
+.card , h3{
+ color:#111827;
+}
+.card{
+ display:flex;
+ flex-direction:column;
+ width:33%;
+ margin-left:30px;
+}
+.sub-card{
+display:flex;
+flex-direction:row;
+/* justify-content: space-evenly; */
+margin-top:0.5px;
+}
+.subscribe{
+	font-weight:bold;
+}
+.stats{
+	color:#4f46e5 ;
+}
+.statsold{
+	color:#6b7280 ;
+	font-size:0.9rem;
+	margin-right:150px;
+}
+.percentage-container{
+	display:flex;
+	align-items:center;
+	border-radius:8px;
+	padding:2px;
+	height:20px;
+	margin-top:20px;
+}
+.up-arrow-percentage-container{
+	background-color:#dcfce7;
+}
+.up-growth-percentage{
+	margin-left:2px;
+    font-size:0.9rem;
+	color:#407f54;
+}
+#upArrow{
+	width:17px;
+	height:17px;
+	/* Changing color of image from default is incomplete as per mockup 
+	 Green Arrow color - #22c55d
+	*/
+}
+.vertical-line{
+  border-left: 1px solid gray;
+  height: auto; 
+}
+#downArrow{
+	width:17px;
+	height:17px;
+	/* 
+	Changing color of image from default is incomplete as per mockup 
+	Red Arrow Color - #ef4444
+	*/
+}
+.down-growth-percentage{
+	margin-left:2px;
+    font-size:0.9rem;
+	color:#991b1b;
+}
+
+.down-arrow-percentage-container{
+	background-color:#fee2e2;
+}
