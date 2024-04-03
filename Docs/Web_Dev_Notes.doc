@@ -167,7 +167,7 @@ Absolute:
   * Top left corner of webpage.
   * The tricky thing about the absolute positioning is you have to make sure if you want 
     it positioned relative to another item, you have to set that ancestor to have position relative. 
-    Otherwise it's goingto default to positioning relative to the top left of the web page.
+    Otherwise it's going to default to positioning relative to the top left of the web page.
   * In Absolute Positionning the element moves up and down if you scroll.
   * Z-index: Everything on screen has a default Z index of zero.
 
@@ -1010,3 +1010,22 @@ Axios:
     and vertically(Y-Axis). So vertically means having more records, and horizontally means having more fields".  
 
   * Popular NoSQL databases we come across is MongoDB, Redis, DynamoDB (Run by Amazon).   
+
+
+
+  Postgress:
+ 
+ Table Create Syntax:
+
+ CREATE TABLE flags (
+id SERIAL PRIMARY KEY /*Here Key word SERAIL is similar to IDENTITY in SQL Server*/,
+name VARCHAR(45),
+flag text	 /*Imported csv has flag emoji's of UTF-8 data type. text data type because it handles little better*/
+); 
+
+To insert bulk data  into the table you can use following steps:
+* In PgAdmin tool on click on  table we have option "Import/Export Data". 
+* Select the file from the storage location. Make sure Impors is highlightened and checked
+* Click on Options tab make sure "Headers Radio button is selected" 
+* In Columns tab make sure the csv file header columns and DB table columns name are same including case sensitive. Those should be identical
+ 
