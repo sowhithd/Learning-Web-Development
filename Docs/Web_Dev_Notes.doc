@@ -1013,7 +1013,7 @@ Axios:
 
 
 
-  Postgress:
+  Postgres:
  
  Table Create Syntax:
 
@@ -1029,3 +1029,7 @@ To insert bulk data  into the table you can use following steps:
 * Click on Options tab make sure "Headers Radio button is selected" 
 * In Columns tab make sure the csv file header columns and DB table columns name are same including case sensitive. Those should be identical
  
+where and like usage in Postgres:
+SQL Query:
+SELECT * FROM <Table_Name>
+where <Column_Name> like '<String_To_Seach>' || '%' OR '%' || '<String_To_Seach>';
