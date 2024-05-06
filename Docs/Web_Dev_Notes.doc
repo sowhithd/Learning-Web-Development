@@ -858,11 +858,83 @@ We can understand more by testing sample API's from here : https://secrets-api.a
 
     * Authentication is something that allows you to be identified as a user to the API provider.
 
-  Authorization:
-   * Is simply a client who is allowed to use your service with an API key that might be associated with a user, in which case they 
-     are authenticating themselves and then getting an API key to authorize themselves to use your API. 
+    Types:
+    Ceaser Cipher:
+     * A really simple example of encryption is something called the Caesar Cipher, 
+       which is named after Julius Caesar.
 
-   * Authorization is something that allows you to use an API.
+     * This is an extremely simple form of cipher where we take the alphabet and we have an 
+       encryption key.
+     * The Caesar cipher is a very, very weak encryption method. It's incredibly easy to figure out 
+        what the original text was, even if you didn't have a key.  
+     * How this works? : In this the important part is "key" meaning how many letters to shift.
+       Ex: I have secret text "troops in north" and I have a key of 3. Now the text encrypted to
+           "wurrsv lq qruwk". Here each individual word shift to  3 letters. Meaning
+
+           "t" shift to "w".
+           "r" shift to "u".
+           "o" shift to "r".
+           "p" shift to "s".
+           "s" shift to "v".
+           
+      * Here is the online link to see the Caesar Cipher: https://cryptii.com/pipes/caesar-cipher.
+
+ AES256 Encryption:
+ * In modern days, we use something far more secure, which is called AES 256,
+   And this has a whole bunch of math applied, but at the end of the day, the essential process 
+   is still the same.   
+
+ * Now, there is just one weakness to this situation if we're thinking about storing passwords,
+   and that is the fact that this type of encryption or this type of obfuscation is symmetrical.
+  
+ * So it means that if somebody happens to get hold of this super important encryption key and you 
+   encrypt everything in your database using this particular method, AES 256, so no matter how 
+   strong it is, if they get hold of this particular secret key, then everything else collapses 
+    and they can work out encrypted text.
+
+ * How this work? :
+     * We have some plain text(ex: Troops In North) and then we have an encryption key(ex: Test), 
+       which is something that you keep top-secret and you don't pass along with your text.
+
+     * And we can go ahead and encrypt the string using AES, you can see that the 
+       result(ex: 2PjL3YrLc50OLGFpAVmSRg==) is much, much longer.
+  
+     * It's very hard to work out how many letters the original text had, but if you were 
+       somebody who's meant to receive this message and you receive it, and then you know that 
+       the encryption key is then we can decrypt the encryptd message to view actual message.
+
+   * Here is the online link to see the aes256 encryption: https://encode-decode.com/aes256-encrypt-online/
+
+
+
+  At the moment, the biggest flaw in both discussed  authentication methods is the fact that we need 
+  an encryption key to encrypt our passwords and decrypt our passwords.
+  
+  So, we need to keep this encryption key very, very secret. So, how can we address this weakest link, 
+  the need for that encryption key?
+
+  Well, here is where "Hashing" comes into play where as previously with encryption we needed that 
+  encryption key, "hashing" takes it away and no longer requires the need for an "encryption key".
+
+  Q).  How can we decrypt our password once it gets converted into a hash?
+  Ans). Well, we can't. We use something called a Hash function to turn that password into a hash,
+        and we store that hash in our database.
+        
+        Now, the problem is that hash functions are mathematical equations that are designed 
+        to make it almost impossible to go backwards, so it's almost impossible to turn a hash 
+        back into a password.
+   
+ Q).  So, how can we use hashing to solve this problem?
+ ANS). So when a user tries to register on our website, then we ask them for the password, which
+       we turn into a hash using our hash function, and then we store that hash on our database.
+
+       Now, at a later point, when the user tries to log in and they type in their password, 
+       then we again hash that password that user typed in to produce a hash, and then 
+       we compare it against the hash that we have stored in our database.
+
+      And if those two hashes match, then that must mean that the login password is the same as 
+      the password given by user at time of registration. 
+
 
 * Token Based Authentication:
 
@@ -873,6 +945,141 @@ We can understand more by testing sample API's from here : https://secrets-api.a
 
  * Normally you'll see Token Based Authentication as "OAuth and OAuth 2.0" is probably the industry standard for doing token-based 
    authentication.  
+
+
+Salt Password:
+* This helps in prevent dictionary and hash table attacks.
+* Salting takes the hasing the password a little bit further, in addition to the  password we 
+  generate a random string called a salt, and then we hash the password and the salt together.
+
+one that approach used to be to use a salt and then hash the password and the salt together. 
+Used in below type:
+
+Bcrypt:
+
+* "Bcrypt" is a way for us to be able to hash our passwords using the "Blowfish algorithm", which 
+  is a super secure, very modern way of ensuring that nobody with current computational skills 
+  should be able to decode our password in a reasonable amount of time.
+
+* This is one of the industry standard hashing algorithms that developers use to keep their users' 
+  passwords safe. 
+
+* It has a concept of what's called "salt rounds", how many rounds you're going to salt your 
+  password with. 
+
+* "bcrypt implementation flow":  Well, let's say that our original user password was "qwerty", and 
+  we generate a random set of characters as the salt.
+  So now we have qwerty and a random set of salt. We pass it through our hash function Bcrypt and 
+  we end up with a hash, now that's "one round of salting".
+  If we wanted to have two rounds of salting, then we take the hash that was generated in round one 
+  and we add the same salt from before, and now we run it through Bcrypt the hash function again, 
+  and we end up with a different hash. And the number of times you do this is the number of salt rounds.
+
+* And for every increase in the salt rounds, the amount of time that it takes to hash your password 
+  doubles. So, that means you don't have to change your hashing algorithm or update your code, 
+  other than simply changing salt rounds number to keep up with the times.
+
+* When it comes to checking their password, when they log in, we'll take the password that they
+  put in from UI, combine it with the salt that's stored in the database for that user, and run 
+  it through the same number of salting rounds until we end up with the final hash, and 
+  we compare the hash against the one that's stored in the database to see 
+  if they've entered the correct password. 
+
+* we have a npm package for this called "bcrypt" . Here is the link: https://www.npmjs.com/package/bcrypt
+
+* Because while you can calculate 20 billion MD5 hashes per second, even the latest and the greatest
+  GPUs can still calculate only about "17,000 Bcrypt hashes per second", which makes it 
+  dramatically harder for a hacker to generate those precompiled hash tables and a salted 
+  hash table instead of taking something like three seconds if it was hashed with MD5.
+
+
+Enviornment Variables:
+
+* Environment variables are basically a very, very simple file that we're going to keep certain 
+  sensitive variables, such as encryption keys and API keys.
+
+* The filename will be ".env" this is strandrad way of creating the enviornment file.
+
+* And everything is in all caps, and each word is separated by an underscore.  And then we have 
+  an equal sign. And then we have a string enclosed in double quotes.
+
+* That string is going to be whatever information is going to be associated with that name.
+
+* The other thing to notice is that there's no space between the start and the end of the equal sign.
+
+* And also, if you were to create another variable here, you don't have any sort of 
+ commas or semicolons or anything, you just start it on a new line.
+
+ Ex: PG_USER="postgres"
+
+What exactly are these environment variables used for?
+
+* One is for convenience. Normally when you deploy a large application, the process is quite 
+  complicated. And once you've done it, you kind of don't want to mess around with the code base 
+  and update the code files, instead, you could have these environment variables which you can change. 
+  So certain variables that are being used in your code base could be set as environment variables, 
+  and you could modify those variables without having to touch the code.
+
+* Second reason might be for security. So when you're developing software, you might be uploading 
+  your code base somewhere, and it's usually not a good idea to have things like your authentication 
+  keys or your API keys to be stored in the same place as the rest of your code.
+   
+
+
+Password hacking Reference Links:
+https://plaintextoffenders.com/about/  -- To now about the email that password has been comprised.
+
+https://www.passwordrandom.com/most-popular-passwords -- MD5 hash passwords for common passwords
+
+https://haveibeenpwned.com/ -- To find out the emailID got breached or not.
+
+http://password-checker.online-domain-tools.com/ -- To check password is strong or not in online
+
+https://en.wikipedia.org/wiki/List_of_the_most_common_passwords -- In this wiki it shows list of common passwords used in world
+
+https://hackertyper.net/ -- To look like a hacker all we need to type something in keyboard
+
+
+
+
+  Authorization:
+   * Is simply a client who is allowed to use your service with an API key that might be associated with a user, in which case they 
+     are authenticating themselves and then getting an API key to authorize themselves to use your API. 
+
+   * Authorization is something that allows you to use an API.
+
+OAuth:
+* It's simply an "Open Standard for Token-based Authorization".
+
+* So by using OAuth, we're able to access pieces of information on third party websites, such
+  as their friends emails or their contacts on Gmail. if user choose to login with Google.
+
+*   OAuth is quite special in three ways:
+
+  * The first way is that it allows you to grant a "Granular Level of Access". Meaning that means 
+    when your user logs in with Google, you can request specific things from their Gmail
+    account. The app developer can determine what kind of data do they need from the user's account 
+    and request those accordingly.
+  
+  * The second thing about OAuth is it allows for either "Read-only or Read-and-Write access".
+    So in the case of Facebook, this means that you can either ask them to just retrieve pieces of 
+    information about their account (ex:Facebook). Or you can ask for write access as well. 
+    Say for example, in this case, if WordPress wanted to be able to post to Facebook on this user's 
+    account, then they would need to ask for, read and write access. 
+
+  * The third thing is that the third party that you're using to authenticate your users should be 
+    able to Revoke Access at any point on their website. So, that means if you're authenticating 
+    with Facebook, the user should be able to go into their Facebook account and de-authorize 
+    the access that they granted to your website.
+
+  How does this OAuth actually work in reality?  
+
+  * So the first step is to actually tell this third party, be it Facebook, Twitter, or Google, 
+    about our web application because they don't know about us.
+    
+  * So we have to set up our app in their developer console (ex: Google:  https://console.cloud.google.com/),
+    and in return we get what's called an app ID or a client ID, and we or our website is then the 
+    client, which will make the request to Facebook/Google to authenticate our user.  
 
 
 REST API:(Representational State Transfer API)
