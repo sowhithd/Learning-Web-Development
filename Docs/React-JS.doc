@@ -1,0 +1,113 @@
+ES6/ECMAScript2015:(ES stands for European Computer Manufacturer Association Script)
+It lays out the specification and basic rules of language on which Javascript is based on.
+ES6 is the second major release for JavaScript. Those few mentioned below
+let keyword
+const keyword
+default parameter
+rest parameter
+spread operator
+destructuring
+forof loop
+modules
+map function
+arrow function
+class
+inheritance
+
+In JavaScript we don't have datatypes. We declare the varible with Var Key word.
+How  “let” keyword is different from “var” key word?
+The  keyword is similar except that let declared variable block scoped variable.
+
+React is a javascript library which we use to build frontend or user interface.
+It is not framework like angular.
+React is a user interface library
+React is a tool for building UI components.
+Features of React:
+It uses something called JSX(JavaScript XML).
+We can use TypeScript in react but this is optional not mandatory.
+It uses Component based architecture.
+It has something called OneWay data binding.
+It uses Virtual DOM
+
+React uses a virtual DOM, basically browser creates the acutal DOM but React  not going to modify the actual DOM and uses Virtual DOM. 
+Virtual DOM is significantly faster and most efficient to update. Whatever do we as suppose we have actual DOM's reaction going to create a mirror copy of the actual DOM is called “VirtualDOM”
+ReactJS doesn't support entirely Dependency Injection.
+
+Why we are using Virtual DOM?
+Because actual DOM is slow in its real form.
+Virtual DOM is significantly faster and more efficient to update.
+Due to component based structure we can advantage of Reusability.
+React is better in terms of performance because of light in weight and give us flexibility to choose only the thing that is required.
+	
+
+NPM stands for Node Package Manager.  It's like a tool which we can  use to manage the dependencies to do a lot of automation. 
+
+About React App Folder and Files:
+Package.json --> This is an npm configuration file, it contains app meta data, some scripts and list of dependencies
+Package-lock.json --> This is a auto configuration file. This is the auto generated file that get updated whenever NPM does any operation on the package.json file.
+node_modules --> This folder contain the dependencies, that source code required in the react project.
+public -->  This folder contain 	public assests of the app. It contain “index.html” file where React will mount app root component.
+.gitignore --> This  file used by Git to ignore, any file and folder while publishing source code into the remote server.
+READE.md --> It provies the  documentation to read  about the project.
+Src --> It contains the application source code. Where we create most of the files.
+There are three files with similar name but different extions.
+Those  files are given below:
+Apps.css
+App.js
+App.test.js
+
+index.css -->This file is the global css file. In this page  we can able to define the styling of entire application.
+
+index.js --> It is the main entry point of the application. Like your main method in C#.  Similarly this is a file which is going to be called intially to start application.
+
+Components in React:	
+In React a component represents a part of user interface.
+What ever visible on the webpage  is a components, we can put component together makes a bigger component.
+
+Types of Components:
+In above State means data
+Class Components  -- StateFull
+The component data which gets modified dynamically called StateFull. Ex: 
+Syntax:
+import  { Component } from 'react';//shortcut  for import imr
+
+class HelloClassComponent extends Component {
+    render() {
+        return <h1>Hello Comment</h1>
+    }
+}
+
+export default HelloClassComponent;
+
+Functional Components – StateLess
+In the component there is no changes in data dynamically. Ex: Logos in website they won't change for every action in the component
+We can't mantain the state in functional component.
+Ex:
+function WorldFunctionalComponent() {
+    return <h1>World Component</h1>
+}
+
+function subComponent() {
+    return <h2>sub Component</h2>
+}
+export default WorldFunctionalComponent;
+
+In React version 16.4  they introduce the concept of hook which make possible to do everything with functional component.(Means Stateful is possible with functional component)
+
+InterCommunication between Components:
+Using Porps we can pass the data between components
+Context API --> This is a part of react library
+Statement Library -->	redux, flux
+
+Redux:
+Redux is Javascript based library used for state management .
+Redux is one of the independent library we can use for maintaing a state globally. That  mean it is used for the intercommunication between the component.
+Redux is a  JavaScript State management library.
+The idea is to maintain centrally/globally data which can accessed by any component  irrespective of the position and order of the component, otherwise we have to pass data to each and every component in the component tree.
+Redux Architecture:
+It has three main components:-
+Store – Entire state of application is listed and managing status of the app at  given point of time.
+Action – A pure object contained within the store having the information the user event , the action is send from the view to the reducer.
+Reducer – Reducer is a function which is able to read the payload (means the data that has been submitted from the component) from the action and  then execute  to updating the store 
+
+

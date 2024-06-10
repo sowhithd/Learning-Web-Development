@@ -1,0 +1,17 @@
+.heading {
+  font-size: 50px;
+  font-weight: bold;
+  border-bottom: 5px solid black;
+}
+
+.greeting-morning {
+  color: red;
+}
+
+.greeting-afternoon {
+  color: green;
+}
+
+.greeting-night {
+  color: blue;
+}
