@@ -1,0 +1,34 @@
+* The important thing here is that we have a user interface 
+  that is dependent upon the value of astate variable. 
+  And this kind of programming is often known as 
+  "Declarative Programming". 
+
+* We're declaring when we're writing our code, how our 
+  user interface should look under different conditions 
+  dependent upon the state.
+
+  Ex: in App.jsx
+  Based on "isDone" variable the UI will change 
+  if it's not true, then we're going to apply null. 
+  So now when the isDone property, which is the state that
+  we're tracking. 
+  If it is false I get normal text, but as soon as that 
+  switches to true, then the strike-through styling gets 
+  applied and my user interface updates to reflect the 
+  update in the state.
+  
+var isDone = false;
+<p style={isDone ? { textDecoration: "line-through" } : null}>Buy milk</p>
+
+
+* The other style of programming would be called 
+  "Imperative Programming", and this is what we've been 
+  doing all alongusing JavaScript. 
+
+* When we say document.getElementById and then we tap into 
+  its properties and then we set it equal to something,
+  this is us imperative telling the element to do something 
+  different. And we can achieve exactly the same results.
+
+  Ex:
+    document.getElementById('root').style.textDecoration = "line-through";
