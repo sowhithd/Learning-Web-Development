@@ -32,6 +32,10 @@ if (isEditing){
         which just sets an initial value instead of enforcing a value thereafter.
 
        Ex: playerNamePlaceHolder = <input type="text" required defaultValue={initialPlayerName}/>;
+
+       The other way is using the benefit of useState and like below we can make the input feild  editable
+
+       Ex: playerNamePlaceHolder = <input type="text" required value={playerName} onChange={handleChange}/>
         
     */
     playerNamePlaceHolder = <input type="text" required value={playerName} onChange={handleChange}/>;
