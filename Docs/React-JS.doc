@@ -14,31 +14,65 @@ arrow function
 class
 inheritance
 
-In JavaScript we don't have datatypes. We declare the varible with Var Key word.
-How  “let” keyword is different from “var” key word?
-The  keyword is similar except that let declared variable block scoped variable.
+* In JavaScript we don't have datatypes. We declare the varible with Var Key word. How "let" keyword is different from "var" key word?
+  The  keyword is similar except that let declared variable block scoped variable.
 
-React is a javascript library which we use to build frontend or user interface.
-It is not framework like angular.
-React is a user interface library
-React is a tool for building UI components.
-Features of React:
-It uses something called JSX(JavaScript XML).
-We can use TypeScript in react but this is optional not mandatory.
-It uses Component based architecture.
-It has something called OneWay data binding.
-It uses Virtual DOM
+* React is a javascript library which we use to build frontend or user interface.
+
+* When working with, React you in the end write "declarative code", which means you define a target UI state/states not the steps 
+  needed to get there. And React will figure out how to get there and perform the necessary steps.
+
+*  React on the other hand embraces declarative programming, with React, you define the goal and React figures out how to get there
+
+* Vanilla JavaScript requires imperative programming.
+
+* Imperative Programming: You define all the steps needed to achieve a result
+
+* It is not framework like angular.
+
+* React is a user interface library.
+
+* React is a tool for building UI components.
+
+* React projects almost always use a "build process" which as part of that build process, injects these script tags into the HTML code. 
+
+* The code you write is not the code that gets executed like this, at least, in the browser. Instead, the code you write is transformed 
+  behind the scenes before it's handed off to the browser.
+
+* Features of React:
+  * It uses something called JSX(JavaScript XML).
+  * We can use TypeScript in react but this is optional not mandatory.
+  * It uses Component based architecture.
+  * It has something called OneWay data binding.
+  * It uses Virtual DOM.
 
 React uses a virtual DOM, basically browser creates the acutal DOM but React  not going to modify the actual DOM and uses Virtual DOM. 
-Virtual DOM is significantly faster and most efficient to update. Whatever do we as suppose we have actual DOM's reaction going to create a mirror copy of the actual DOM is called “VirtualDOM”
+Virtual DOM is significantly faster and most efficient to update. Whatever do we as suppose we have actual DOM's reaction going to create a mirror copy of the actual DOM is called ï¿½VirtualDOMï¿½
 ReactJS doesn't support entirely Dependency Injection.
 
-Why we are using Virtual DOM?
-Because actual DOM is slow in its real form.
-Virtual DOM is significantly faster and more efficient to update.
-Due to component based structure we can advantage of Reusability.
-React is better in terms of performance because of light in weight and give us flexibility to choose only the thing that is required.
-	
+In React, a Component is really just a JavaScript function. Though in order to be recognized and used as a Component by React, it's a 
+function that must follow two important rules.
+
+ * The function name must start with an uppercase character.
+
+*  The function must return a renderable value, typically the to-be-rendered HTML markup.
+----------
+* Why we are using Virtual DOM?
+    Because actual DOM is slow in its real form.
+    Virtual DOM is significantly faster and more efficient to update.
+    Due to component based structure we can advantage of Reusability.
+    React is better in terms of performance because of light in weight and give us flexibility to choose only the thing that is required.
+
+* Why does the code need to be transformed before injects into browser?
+  1). The first reason is that raw unprocessed React code won't execute in the browser. Becuase  React code uses the 
+      JSX(JavaScript XML) feature. This would not work because this is not a standard JavaScript feature/syntax.
+
+  2). Another reason is that the code you write would not be optimized for production. Minification simply means that, 
+      for example,names of variables or functions are shortened to reduce the amount of JavaScript code
+      that's served to the user.
+
+it would not be minified
+Mostly because React code uses this special JSX feature.	
 
 NPM stands for Node Package Manager.  It's like a tool which we can  use to manage the dependencies to do a lot of automation. 
 
@@ -46,7 +80,7 @@ About React App Folder and Files:
 Package.json --> This is an npm configuration file, it contains app meta data, some scripts and list of dependencies
 Package-lock.json --> This is a auto configuration file. This is the auto generated file that get updated whenever NPM does any operation on the package.json file.
 node_modules --> This folder contain the dependencies, that source code required in the react project.
-public -->  This folder contain 	public assests of the app. It contain “index.html” file where React will mount app root component.
+public -->  This folder contain 	public assests of the app. It contain ï¿½index.htmlï¿½ file where React will mount app root component.
 .gitignore --> This  file used by Git to ignore, any file and folder while publishing source code into the remote server.
 READE.md --> It provies the  documentation to read  about the project.
 Src --> It contains the application source code. Where we create most of the files.
@@ -69,45 +103,168 @@ In above State means data
 Class Components  -- StateFull
 The component data which gets modified dynamically called StateFull. Ex: 
 Syntax:
-import  { Component } from 'react';//shortcut  for import imr
+import  { Component } from 'react';//shortcut for import imr
+
+"Note: When importing named exports not default exports in JavaScript, we need to include curly braces around the name."
 
 class HelloClassComponent extends Component {
-    render() {
-        return <h1>Hello Comment</h1>
-    }
+ render() {
+    return <h1>Hello Comment</h1>
+ }
 }
 
 export default HelloClassComponent;
 
-Functional Components – StateLess
+Functional Components StateLess
 In the component there is no changes in data dynamically. Ex: Logos in website they won't change for every action in the component
 We can't mantain the state in functional component.
 Ex:
 function WorldFunctionalComponent() {
-    return <h1>World Component</h1>
+    return <h1>World Component</h1>
 }
 
 function subComponent() {
-    return <h2>sub Component</h2>
+    return <h2>sub Component</h2>
 }
 export default WorldFunctionalComponent;
 
-In React version 16.4  they introduce the concept of hook which make possible to do everything with functional component.(Means Stateful is possible with functional component)
+In React version 16.4  they introduce the concept of hook which make possible to do everything with functional component.
+(Means Stateful is possible with functional component)
 
 InterCommunication between Components:
 Using Porps we can pass the data between components
 Context API --> This is a part of react library
 Statement Library -->	redux, flux
 
+Props:
+* Props are a fundamental concept for building reusable and dynamic components. 
+* They act as a way to pass data and configuration settings from parent components to their child components and they are read-only objects
+
+// Parent component
+const Parent = () => {
+  const name = "Alice";
+  return (
+    <div>
+      <Welcome name={name} /> {/* Pass the name prop */}
+    </div>
+  );
+};
+
+// Child component
+const Welcome = (props) => {
+  return (
+    <h1>Hello, {props.name}!</h1>  {/* Access the prop using props.name */}
+  );
+};
+
+
+Below example explains how and when we can use children property available in props.
+
+//Parent 
+const HomePage = () => {
+  return (
+    <div>
+      <TabButton>Click on Edit</TabButton>
+       <TabButton>Submit</TabButton> 
+    </div>
+  );
+};
+
+//Child
+const TabButton = (props) => {
+
+    return <li><button></button></li>
+};
+
+* We don't get an error, but we also don't see any buttons text shown in UI browser even though we have this text here.
+
+* Reason is this text is basically ignored by React because if I pass something between component opening and closing tags, this 
+  content is by default not output on the page because React would not know where to output it. I mean after all, you are telling React
+  that your custom component should be output on the page. So how would React know what to do with this text here?
+
+* Every custom component accept props. Even if you're not setting any custom attributes. React will still give you a props object.  
+  This props object will have a property called children. 
+  
+* This children property will contain the content that you passed between component opening and closing tags. And can be accessed
+  like below. We don't set any value to children property. Instead, this children prop here simply refers
+  to the content between your component. Whichever content you have between custom component either a text or a complex JSX structure.
+
+  //Child
+const TabButton = (props) => {
+    return <li><button>{props.children}</button></li>
+};
+
+
+* The above mentioned way of building Components where your Components can wrap other Components or other content is called 
+  "component composition".
+
+
+useState:
+ It is a strong recommendation by the React team. It's a best practice in the React world and it is simply something you should memorize.
+ When updating your state based on the previous value of that state, you should pass a function to that state updating function instead
+ of that new state value you wanna have
+
+ Ex: 
+ const [isEditing,setIsEditing] = useState(false);
+
+function handleEditPlayer(){
+    setIsEditing(!isEditing);
+}
+
+Instead of that:
+
+const [isEditing,setIsEditing] = useState(false);
+
+function handleEditPlayer(){
+    setIsEditing((editing)=>!editing);
+}
+
+
+why do you pass a function?
+Because this function which you pass here will be called by React and it will automatically get the current state value.
+Using this function apporach React is scheduling these state updates. React will always be working with the latest available state value. 
+
+
+It's also strongly recommended that if your state is an object or array, you update that state in an "immutable way", which simply 
+means you create a copy of the old state so a new object or a new array first, and you then just change that copy instead of that 
+existing object or array
+
+Ex:
+Not Creating a copy:
+
+const updatedUser = user;
+user.name = 'Max';
+
+Creating a Copy via JavaScript spread Operator:
+const updatedUser = {...user};
+user.name = 'Max';
+
+In above we are updating object that copied from Original object.
+
+And the reason for that recommendation is that if your state is an object or array you are dealing with a reference value in JavaScript.
+And therefore if we updating array/object wihtout creating a clone of original reference you would be updating the old value 
+in-memory immediately, even before the scheduled state update was executed by React. And this can again lead to strange bugs or 
+side effects if you have multiple places in your application that are scheduling state updates for the same state.
+
+
 Redux:
 Redux is Javascript based library used for state management .
-Redux is one of the independent library we can use for maintaing a state globally. That  mean it is used for the intercommunication between the component.
+Redux is one of the independent library we can use for maintaing a state globally. That  mean it is used for the intercommunication
+ between the component.
 Redux is a  JavaScript State management library.
-The idea is to maintain centrally/globally data which can accessed by any component  irrespective of the position and order of the component, otherwise we have to pass data to each and every component in the component tree.
+The idea is to maintain centrally/globally data which can accessed by any component  irrespective of the position and order of 
+the component, otherwise we have to pass data to each and every component in the component tree.
+
 Redux Architecture:
 It has three main components:-
-Store – Entire state of application is listed and managing status of the app at  given point of time.
-Action – A pure object contained within the store having the information the user event , the action is send from the view to the reducer.
-Reducer – Reducer is a function which is able to read the payload (means the data that has been submitted from the component) from the action and  then execute  to updating the store 
+Store   : Entire state of application is listed and managing status of the app at  given point of time.
+Action  : A pure object contained within the store having the information the user event , the action is send from the view to the reducer.
+Reducer : Reducer is a function which is able to read the payload (means the data that has been submitted from the component) from the action and  then execute  to updating the store 
 
 
+Tools:
+Vite: Used to create local React projects(https://vitejs.dev/), tool which do transform your code to code that can be executed 
+      efficiently in the browser.
+
+Create-React-App: Create React App is an officially supported way to create single-page React applications. 
+                    It offers a modern build setup with no configuration. (https://create-react-app.dev/)

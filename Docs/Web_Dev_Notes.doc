@@ -79,6 +79,30 @@ style sheet, and finally the internal style sheet.
 Thus, the final background color of the page will be set according to inline styling.
 
 
+Closer Look: public/ vs assets/ for Image Storage:
+
+The public/ Folder:
+As shown in the previous lecture you can store images in the public/ folder and then directly reference them from inside your index.html or index.css files.
+
+The reason for that is that images (or, in general: files) stored in public/ are made publicly available by the underlying project development server & build process. Just like index.html, those files can directly be visited from inside the browser and can therefore also be requested by other files.
+
+If you try loading localhost:5173/some-image.jpg, you'll be able to see that image (if it exists in the public/ folder, of course).
+
+The src/assets/ Folder:
+You can also store images in the src/assets/ folder (or, actually, anywhere in the src folder).
+
+So what's the difference compared to public/?
+
+Any files (of any format) stored in src (or subfolders like src/assets/) are not made available to the public. They can't be accessed by website visitors. If you try loading localhost:5173/src/assets/some-image.jpg, you'll get an error.
+
+Instead, files stored in src/ (and subfolders) can be used in your code files. Images imported into code files are then picked up by the underlying build process, potentially optimized, and kind of "injected" into the public/ folder right before serving the website. Links to those images are automatically generated and used in the places where you referenced the imported images.
+
+Which Folder Should You Use?
+You should use the public/ folder for any images that should not be handled by the build process and that should be generally available. Good candidates are images used directly in the index.html file or favicons.
+
+On the other hand, images that are used inside of components should typically be stored in the src/ folder (e.g., in src/assets/).
+
+
 
 
 CSS:
@@ -393,7 +417,23 @@ JavaScript:
 
 * Brendan Eich created JavaScript in 10 days. Initially it was called "LiveScript". Later Europeans decide to strandardize the language and
   called "ECMA (European Computer Manufactures Association) Script".
+
 * JavaScript is a Interpreted Programming Language. Ex: JavaScript, Python, Ruby.
+
+* In HTML page in header section we have way to import the external .js file using script tag like below
+   Ex: <script src="./assets//scripts/index.js" defer></script>
+
+* Here attribute "defer" make sure that the script that will be imported, will only be executed after the rest of the HTML document
+  has been read and parsed. This ensures that, if your script code, for example, needs to work with some HTML elements, those HTML 
+  elements are available when the JavaScript code starts executing. 
+
+* Variables are simply data containers where you store a value in a variable which carries any name of your choice.
+  So you assign a custom name to a variable and you can then use this variable name as an identifier in your code to refer to that 
+  value that's stored in this variable whenever you need to use that value. They also may not contain any special characters
+  like an exclamation mark or a question mark. "The only exception is the dollar sign and the underscore";
+
+  Ex: Allowed format: let _username = "test"; let $username1 = "test1";
+
 
 What is Middle-Squares Method?
 The middle-square method is a simple way to generate random numbers. It involves creating an n-digit starting value, squaring it, 
