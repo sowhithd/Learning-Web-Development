@@ -247,6 +247,142 @@ in-memory immediately, even before the scheduled state update was executed by Re
 side effects if you have multiple places in your application that are scheduling state updates for the same state.
 
 
+
+Styling in React Components:
+The "<Component_Name>.module.css" file naming convention is associated with "CSS Modules", a CSS file in which all class and animation 
+names are scoped locally by default. This is typically used in modern JavaScript frameworks like React to avoid naming conflicts and 
+apply styles scoped to specific components.
+
+Option_1:
+
+CSS Modules
+Key Features:
+* Scoped Styles: CSS Modules automatically scope styles locally, so you don't have to worry about global name clashes.
+* Dynamic Class Names: Class names are dynamically generated to ensure uniqueness.
+* Composition: You can compose multiple classes together.
+
+Ex:
+<Component_Name>.module.css:
+/* styles are scoped locally */
+.title {
+  color: blue;
+  font-size: 24px;
+}
+
+.description {
+  color: gray;
+  font-size: 16px;
+}
+
+Component_Name.jsx:
+
+import React from 'react';
+import styles from './Component.module.css';
+
+const Component = () => {
+  return (
+    <div>
+      <h1 className={styles.title}>Hello, World!</h1>
+      <p className={styles.description}>This is a description.</p>
+    </div>
+  );
+};
+
+export default Component;
+
+Explanation:
+* Scoped Styles: In the example above, the title and description classes defined in Component.module.css are scoped to the 
+                 Component component. 
+                 This means you can use the same class names in different components without worrying about style conflicts.
+* Importing Styles: When you import styles from ./Component.module.css, you get an object where keys are the original class names 
+                    and values are the unique, generated class names.
+* Using Styles: You apply the styles by referencing styles.className in your JSX. This ensures that the generated class names are 
+                applied correctly.
+
+
+Option_2:
+Styled Components:
+URL: https://styled-components.com/
+
+Styled Components is a library for React and React Native that allows you to use component-level styles in your application. 
+It leverages tagged template literals to style your components, providing a clean and expressive way to manage styles with JavaScript.
+
+Library to be installed using npm/yarn Ex: (npm install styled-components OR yarn add styled-components)
+
+Key Features of Styled Components:
+* Scoped Styles: Styles are scoped to the component, avoiding global style conflicts.
+* Dynamic Styling: You can pass props to dynamically style components.
+* Theming: Easily create and manage themes.
+* Automatic Vendor Prefixing: Handles browser prefixes automatically.
+
+Ex:
+
+import React from 'react';
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background: ${props => props.primary ? 'blue' : 'gray'};
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid ${props => props.primary ? 'blue' : 'gray'};
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background: ${props => props.primary ? 'darkblue' : 'darkgray'};
+  }
+`;
+
+const App = () => {
+  return (
+    <div>
+      <Button primary>Primary Button</Button>
+      <Button>Secondary Button</Button>
+    </div>
+  );
+};
+
+export default App;
+
+
+Strict Mode:
+ URL: https://reactjs.org/docs/strict-mode.html
+ * In the end it is simply a component you import from React, a built-in component called StrictMode.
+ * So StrictMode is a component provided by React and you therefore use it like a component.
+ * To be precise, it is a component that's meant to be wrapped around other components.
+
+* StrictMode does a couple of things behind the scenes that can help us catch certain problems in our app.
+  * The most important things the StrictMode component does is that it will "execute every component function twice
+    instead of just once" in development mode. When executing in production component execution happens only once.
+    But it does that during development because when every component gets executed twice. 
+
+
+Ex: index.jsx file code:
+
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
+
+import App from "./App.jsx";
+import "./index.css";
+import React from "react";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+
+* In application we can wrap the App component with the opening and closing tags of the StrictMode component.  And that's what I meant 
+   when I said you could use it anywhere in your application. We don't have to wrap the root component.
+
+
+
+
+
+
+
 Redux:
 Redux is Javascript based library used for state management .
 Redux is one of the independent library we can use for maintaing a state globally. That  mean it is used for the intercommunication
