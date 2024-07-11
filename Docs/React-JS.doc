@@ -46,6 +46,8 @@ inheritance
   * It has something called OneWay data binding.
   * It uses Virtual DOM.
 
+ Note: When writing JSX code, there's one important rule: A JSX value must have only one root element. 
+
 React uses a virtual DOM, basically browser creates the acutal DOM but React  not going to modify the actual DOM and uses Virtual DOM. 
 Virtual DOM is significantly faster and most efficient to update. Whatever do we as suppose we have actual DOM's reaction going to create a mirror copy of the actual DOM is called �VirtualDOM�
 ReactJS doesn't support entirely Dependency Injection.
@@ -378,6 +380,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
    when I said you could use it anywhere in your application. We don't have to wrap the root component.
 
 
+Ref in React:
+
+* Well, a ref in React is a value, just as the useState varaible in the end is a value. But difference is it's a special kind of value
+  or it's managed by React in a special way to be precise.
+
+* Now we can create such a ref value in React by importing the use ref hook from React.
 
 
 
