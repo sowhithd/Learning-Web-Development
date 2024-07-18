@@ -381,13 +381,134 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 
 Ref in React:
-
 * Well, a ref in React is a value, just as the useState varaible in the end is a value. But difference is it's a special kind of value
   or it's managed by React in a special way to be precise.
 
 * Now we can create such a ref value in React by importing the use ref hook from React.
 
 
+Prop drilling:
+It is a term used to describe the process of passing data from a parent component to a deeply nested child component through intermediary 
+components. 
+This can become cumbersome and lead to less maintainable code, especially when the data needs to be passed through many layers.
+
+Component composition :
+* Component Composition is a concept in React that allows developers to build complex applications by combining small, reusable components.
+* It is a powerful feature in React that allows you to build complex UIs from smaller, reusable components. 
+* Instead of passing data through props (as in prop drilling), component composition focuses on how components are nested and combined 
+  to create the desired structure and behavior.
+
+Advantages of Component Composition
+* Reusability: Smaller components can be reused across different parts of the application, reducing duplication.
+* Maintainability: Code is easier to read and maintain when it's broken down into smaller, focused components.
+* Flexibility: Composing components allows for more flexible and dynamic UIs, where components can be nested and combined in various ways.
+
+Advanced Composition: Children and Render Props
+* For more advanced use cases, you can leverage the children prop or render props pattern.
+
+Ex: 
+Check in folder ReactJS Learning\Part_8_Component Composition_useReducer_ContextAPI, where we have moved the Product Component to
+App Component from Shop Component and in Shop Component we used "Children Prop" to render Product Comment in this way we have avoided
+prop drilling. Means in Shop Componet the prop passed is not uesful for Shop Component that is needed for Product Component.
+
+Shop Component:
+
+import { DUMMY_PRODUCTS } from '../dummy-products.js';
+
+export default function Shop({ children }) {
+  return (
+    <section id="shop">
+      <h2>Elegant Clothing For Everyone</h2>
+
+      <ul id="products">
+       {children}
+      </ul>
+    </section>
+  );
+}
+
+App Component:
+import { useState } from 'react';
+
+import Header from './components/Header.jsx';
+import Shop from './components/Shop.jsx';
+import { DUMMY_PRODUCTS } from './dummy-products.js';
+
+function App() {
+  function handleAddItemToCart(){//logic}
+
+  return (
+    <>
+      <Header
+        cart={shoppingCart}
+        onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
+      />
+      <Shop>
+       {DUMMY_PRODUCTS.map((product) => (
+          <li key={product.id}>
+            <Product {...product} onAddToCart={onAddItemToCart} />
+          </li>
+        ))}
+      </Shop>
+    </>
+  );
+};
+
+
+More Examples:
+
+Using Children Prop:
+
+import React from 'react';
+
+const Card = ({ children }) => {
+  return <div className="card">{children}</div>;
+};
+
+const App = () => {
+  return (
+    <Card>
+      <Header title="Card Title" />
+      <Content>This is the content of the card.</Content>
+      <Footer text="Footer text" />
+    </Card>
+  );
+};
+
+
+Using Render Props:
+import React from 'react';
+
+const Card = ({ renderHeader, renderContent, renderFooter }) => {
+  return (
+    <div className="card">
+      {renderHeader()}
+      {renderContent()}
+      {renderFooter()}
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <Card
+      renderHeader={() => <Header title="Card Title" />}
+      renderContent={() => <Content>This is the content of the card.</Content>}
+      renderFooter={() => <Footer text="Footer text" />}
+    />
+  );
+};
+
+Content API:
+The Context API is a feature in React that allows you to manage global state in a way that avoids 
+"prop drilling" (the process of passing props down multiple levels of components). 
+It provides a way to share values like data and functions between components without having to pass props through every level of the tree.
+This makes it easier to manage state and props, especially in larger applications.
+
+How Context API Works
+* Create Context: Set up a context where you define the shared data.
+* Provider: Place a Provider component at a high level in your component tree. This Provider supplies the context to its child components.
+* Consumer: Any component that needs the shared data can use a Consumer or the useContext hook to access it.
 
 
 
@@ -403,7 +524,8 @@ Redux Architecture:
 It has three main components:-
 Store   : Entire state of application is listed and managing status of the app at  given point of time.
 Action  : A pure object contained within the store having the information the user event , the action is send from the view to the reducer.
-Reducer : Reducer is a function which is able to read the payload (means the data that has been submitted from the component) from the action and  then execute  to updating the store 
+Reducer : Reducer is a function which is able to read the payload (means the data that has been submitted from the component) 
+          from the action and  then execute  to updating the store. 
 
 
 Tools:
