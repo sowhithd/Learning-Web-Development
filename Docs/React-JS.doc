@@ -200,6 +200,9 @@ const TabButton = (props) => {
 * The above mentioned way of building Components where your Components can wrap other Components or other content is called 
   "component composition".
 
+***********************************************
+
+React Hooks:
 
 useState:
  It is a strong recommendation by the React team. It's a best practice in the React world and it is simply something you should memorize.
@@ -247,8 +250,191 @@ And the reason for that recommendation is that if your state is an object or arr
 And therefore if we updating array/object wihtout creating a clone of original reference you would be updating the old value 
 in-memory immediately, even before the scheduled state update was executed by React. And this can again lead to strange bugs or 
 side effects if you have multiple places in your application that are scheduling state updates for the same state.
+----------------------------------------------
+
+useReducer():
+  The useReducer hook in React is a more powerful alternative to useState for managing state in a component. 
+  It is especially useful when you have complex state logic that involves multiple sub-values or
+  when the next state depends on the previous one.
+
+  How useReducer Works:
+    * Reducer Function: A function that takes the current state and an action, and returns a new state.
+    * Initial State: The starting state.
+    * Dispatch Function: A function that you use to send actions to the reducer.
+
+Example on reducer:
+
+import React from 'react';
+export function counterReducer(state,action) {
+   switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 1 };
+    case 'DECREMENT':
+      return { count: state.count - 1 };
+    case 'RESET':
+      return { count: 0 };
+    default:
+      return state;
+  }
+}
+
+function App() {
+     const [counter,counterDispatch] = React.useReducer(counterReducer, 
+     {
+            count: 0
+    }
+    );
+    function increaseCount(){
+      counterDispatch({
+        type:'INCREMENT'  
+      });  
+    }
+     function decreaseCount(){
+         counterDispatch({
+        type:'DECREMENT'  
+      });
+     }
+      function resetCount(){
+           counterDispatch({
+        type:'RESET'  
+      });
+      }
+  return (
+    <div id="app">
+      <h1>The (Final?) Counter</h1>
+      <p id="actions">
+        <button onClick={increaseCount}>Increment</button>
+        <button onClick={decreaseCount}>Decrement</button>
+        <button onClick={resetCount}>Reset</button>
+      </p>
+      <p id="counter">{counter.count}</p>
+    </div>
+  );
+}
+
+export default App;
+
+Project Example:
+Check file in D:\HTML And CSS\WebDev BootCamp\WebDev\ReactJS Learning\Part_8_Component Composition_useReducer_ContextAPI\src\store\shopping-cart-context.jsx
+to understand more.
+---------------------------------
+Side Effects:
+* These are "tasks" that don't imapct the current component render cycle. So, whenever you have a task that must be performed
+  but that does not directly and instantly impact the current component render cycle.
+
+  In React, side effects are operations that affect something outside the scope of the function being executed, such as network requests,
+  manual DOM manipulation, subscriptions, or logging. Managing side effects is crucial to ensure the application behaves correctly 
+  and efficiently.
+
+  Not every side effect needs useEffect. You basically only need the useEffect hook to prevent infinite loops or if you have code 
+  that can only run after the component function executed at least once.
+
+  The effect function define using useEffect will be executed right after the component function execution.
+   
+   React provides several hooks and methods to handle side effects:
+
+  * useEffect hook: This hook allows you to perform side effects after the component has been rendered.
+     Ex: 
+          import { useEffect } from 'react';
+
+          function MyComponent() {
+            useEffect(() => {
+              // Code to run after render
+              console.log('Component rendered or updated');
+
+              // Optional cleanup function
+              return () => {
+                console.log('Cleanup on component unmount or before next effect');
+              };
+            }, []); // Empty dependency array means it runs only once after the initial render
+
+            return <div>My Component</div>;
+          }
+
+            useEffect(() => {
+                // This code runs only when `prop` changes
+                console.log('Prop changed:', prop);
+              }, [prop]);
 
 
+        Example: About Cleanup usage in useEffect:
+
+        In React's useEffect hook, the cleanup function is specified by returning a function from the effect function. 
+        This cleanup function will be executed when the component is unmounted or before the effect is re-run due 
+        to changes in dependencies.
+
+        Code Ex: 
+                 import { useEffect} from "react";
+              
+                export default function DeleteConfirmation({ onConfirm, onCancel }) {
+                useEffect(() => {
+                //Effect function
+                const timer = setTimeout(() => {
+                    onConfirm();
+                  }, 3000);
+                  //Cleanup Function: This function runs before the effect function runs again and when the component unmounts. 
+                  return () => {
+                    clearTimeout(timer)
+                  }
+                }, []);
+
+                return (
+                  <div id="delete-confirmation">
+                    <h2>Are you sure?</h2>
+                    <p>Do you really want to remove this place?</p>
+                    <div id="confirmation-actions">
+                      <button onClick={onCancel} className="button-text">
+                        No
+                      </button>
+                      <button onClick={onConfirm} className="button">
+                        Yes
+                      </button>
+                    </div>
+                  </div>
+                );
+              }
+
+    * Effect Function: The function passed to useEffect is the effect function. It runs after the component renders and whenever 
+                       the dependencies (in this case, [count]) change.
+    * Cleanup Function: The function returned from the effect function is the cleanup function. This function will run:
+                        * Before the component unmounts.
+                        * Before the effect function re-runs due to changes in dependencies.  
+---------------------------------------------------------------------------------------------------------------------
+  useCallback hook:
+    * This is used to memoize functions. Means that it returns a memoized version of the callback function that only changes if one of 
+        the dependencies has changed. 
+      
+    * It’s useful to prevent unnecessary re-renders when passing callbacks to child components.
+   
+   Using useCallback ensures that the any function is not recreated on every render of the ParentComponent. This is beneficial 
+   because it prevents the ChildComponent from re-rendering unnecessarily when the parent component updates.
+   
+   Without useCallback, every time the parent component re-renders, a new function would be created and if the function is passed to 
+   child component, this will be causing the ChildComponent to re-render even if it doesn't need to.
+
+   Using useCallback helps optimize performance by memoizing the functions and ensuring they are only recreated when necessary.
+
+---------------------------------------------------------------------------------------------------------------------
+  * useLayoutEffect hook: This hook allows you to perform side effects before the component is rendered.
+    Ex: 
+        import { useLayoutEffect } from 'react';
+
+        function MyComponent() {
+          useLayoutEffect(() => {
+            console.log('DOM updated');
+
+            return () => {
+              console.log('Cleanup on component unmount or before next effect');
+            };
+          }, []);
+
+          return <div>My Component</div>;
+        }
+
+   * For class components, side effects are managed using lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount.
+
+
+*********************************************************************************
 
 Styling in React Components:
 The "<Component_Name>.module.css" file naming convention is associated with "CSS Modules", a CSS file in which all class and animation 
