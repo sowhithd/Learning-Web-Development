@@ -205,9 +205,18 @@ const TabButton = (props) => {
 React Hooks:
 
 useState:
- It is a strong recommendation by the React team. It's a best practice in the React world and it is simply something you should memorize.
- When updating your state based on the previous value of that state, you should pass a function to that state updating function instead
- of that new state value you wanna have
+ * It is a strong recommendation by the React team. It's a best practice in the React world and it is simply something you should 
+   memorize.
+ 
+ * When updating your state based on the previous value of that state, you should pass a function to that state updating function 
+  instead of that new state value you wanna have
+ 
+ * When a parent component re-renders and passes a new prop value, the child component also re-renders. However, the initial 
+   state in a functional component is set only once during the initial render. Subsequent renders will not reset the state 
+   to the new prop value.
+
+ * This is because useState only initializes the state with the provided initial value on the first render. 
+   After that, the state remains independent of the initial prop unless explicitly updated.
 
  Ex: 
  const [isEditing,setIsEditing] = useState(false);
@@ -566,6 +575,70 @@ ReactDOM.createRoot(document.getElementById("root")).render(
    when I said you could use it anywhere in your application. We don't have to wrap the root component.
 
 
+---------------------------------------------------------------------------------------------------------------------
+
+Scheduling:
+* React's scheduling mechanisms ensure that rendering work is done efficiently, prioritizing tasks and breaking them into smaller 
+  chunks to prevent blocking the main thread for too long. 
+  The core of this scheduling is handled by the "react-reconciler" package, often referred to as the "React Fiber architecture".
+
+  Key Points:
+  * Concurrent Mode: React can work on multiple tasks at the same time, pausing and resuming as necessary. 
+                      This allows React to prioritize urgent updates (like animations or user input) over less urgent ones.
+  * Idle Time: React can use idle time to perform rendering tasks, ensuring that the main thread is free to handle user 
+               interactions and other high-priority tasks.
+  * Priority Levels: React assigns priority levels to tasks. High-priority tasks (e.g., user interactions) are processed before 
+                      low-priority tasks (e.g., data fetching).
+
+
+Batching:
+* Batching in React refers to the grouping of multiple state updates into a single render pass, improving performance by 
+  reducing the number of re-renders.
+
+  Key Points:
+  * Event Handlers: By default, React batches state updates inside event handlers.
+  * Lifecycle Methods and Hooks: State updates within lifecycle methods (like componentDidMount) and hooks (like useEffect) are 
+                                 also batched.
+* Async Updates: In versions of React before 18, asynchronous code (e.g., inside setTimeout or promises) does not batch 
+                 updates. React 18 introduces automatic batching for most asynchronous operations.
+
+Ex: For Batching
+ 
+  import React, { useState } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState('');
+
+  const handleClick = () => {
+    setCount(count + 1);
+    setName('New Name');
+    // Both state updates are batched into a single re-render
+  };
+  
+  // React 18 introduces automatic batching for asynchronous updates, making it easier to write performant React applications.
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setCount(count + 1);
+    setName('New Name');
+    // Both state updates are automatically batched in React 18
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <p>Name: {name}</p>
+      <button onClick={handleClick}>Update</button>
+    </div>
+  );
+}
+
+export default MyComponent;
+
+
+ 
+
+---------------------------------------------------------------------------------------------------------------------
+
 Ref in React:
 * Well, a ref in React is a value, just as the useState varaible in the end is a value. But difference is it's a special kind of value
   or it's managed by React in a special way to be precise.
@@ -720,3 +793,12 @@ Vite: Used to create local React projects(https://vitejs.dev/), tool which do tr
 
 Create-React-App: Create React App is an officially supported way to create single-page React applications. 
                     It offers a modern build setup with no configuration. (https://create-react-app.dev/)
+
+Million.js package: (https://million.dev/) :
+* Used to optimize the performance of React applications.
+
+* It is recommend diving deeper by (By Maximilian Schwarzmüller Udemy React Tutor) into the official docs to learn 
+  how you can configure it in greater detail and how you can use it to squeeze out every last piece of performance.
+
+* Million.js improves the performance by replacing React's virtual DOM mechanism with a more efficient mechanism,
+  which is faster and derives required DOM updates faster than the existing algorithm that's built into React.  
