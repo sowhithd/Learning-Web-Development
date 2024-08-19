@@ -103,6 +103,16 @@ What ever visible on the webpage  is a components, we can put component together
 Types of Components:
 In above State means data
 Class Components  -- StateFull
+
+React version piror to 16.8:
+Traditionally, you had to use class-based components to manage "State". You could not change State in Functional Components
+and you couldn't really handle side effects there either.
+
+Class-Based Components can't use React Hooks.
+
+
+
+
 The component data which gets modified dynamically called StateFull. Ex: 
 Syntax:
 import  { Component } from 'react';//shortcut for import imr
@@ -130,7 +140,7 @@ function subComponent() {
 }
 export default WorldFunctionalComponent;
 
-In React version 16.4  they introduce the concept of hook which make possible to do everything with functional component.
+In React version 16.8  they introduce the concept of hook which make possible to do everything with functional component.
 (Means Stateful is possible with functional component)
 
 InterCommunication between Components:
@@ -199,6 +209,13 @@ const TabButton = (props) => {
 
 * The above mentioned way of building Components where your Components can wrap other Components or other content is called 
   "component composition".
+
+* Important your state always is an object. And it also has to be a property named "State", the name is not to us.
+  you always group all the state's pieces you might need in a component into one state object. No matter if these state pieces 
+  are closely related or not
+
+  With functional components, your state can be anything. It can be just a Boolean, just a string, just a number but it can 
+  also be an object, but it's flexible it can be anything.
 
 ***********************************************
 

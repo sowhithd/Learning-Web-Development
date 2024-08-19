@@ -718,6 +718,9 @@ ExpressJS:
   use one of the node-module called "nodemon". This will restart the server automatically when it detects any changes done in js page.
   And will install it globally "node i -g nodemon". Then just type "nodemon app.js" instead of "node app.js".
 
+* To Start the ExpressJS server code we need run command: node <file_name>  Ex: node index/app.js
+
+
 Hyper Text Transfer Protocol:(HTTP)
 * Basically describes this as a language, a language that allows computers to talk to each other across the Internet. 
 * Details about status code available in here : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
