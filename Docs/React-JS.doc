@@ -459,6 +459,11 @@ Side Effects:
 
    * For class components, side effects are managed using lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount.
 
+---------------------------------------------------------------------------------------------------------
+Custom Hooks:
+* Custom hooks are reusable functions that use other hooks to perform some specific task.
+
+
 
 *********************************************************************************
 

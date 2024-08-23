@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, useEffect } from "react";
+import { useRef, useState, useCallback } from "react";
 
 import Places from "./components/Places.jsx";
 import Modal from "./components/Modal.jsx";
@@ -7,21 +7,15 @@ import logoImg from "./assets/logo.png";
 import AvailablePlaces from "./components/AvailablePlaces.jsx";
 import { updateUserPlaces, fetchUserSelectedPlaces } from "./http.js";
 import Error from "./components/Error.jsx";
+import { useFetch } from "./customHooks/useFetch.js";
 
 function App() {
   const selectedPlace = useRef();
 
-  const [userPlaces, setUserPlaces] = useState([]);
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  
-  const [errorUpdatingPlaces, setErrorUpdatingPlaces] = useState();
-   
-  const [isDataFetching, setDataFetching] = useState(false);
-  
-  const [error, setError] = useState();
 
-  
+  const [errorUpdatingPlaces, setErrorUpdatingPlaces] = useState();
+
   function handleStartRemovePlace(place) {
     setModalIsOpen(true);
     selectedPlace.current = place;
@@ -31,19 +25,12 @@ function App() {
     setModalIsOpen(false);
   }
 
-  useEffect(() => {
-    async function userPlaces() {
-      setDataFetching(true);
-      try {
-        const response = await fetchUserSelectedPlaces();
-        setUserPlaces(response);
-      } catch (error) {
-        setError({message:error.message || 'Failed to fetch user places.'});
-      }
-      setDataFetching(false);
-    }
-    userPlaces();
-  }, []);
+  const {
+    isDataFetching,
+    error,
+    fetchedData: userPlaces,
+    setFetchedData: setUserPlaces,
+  } = useFetch(fetchUserSelectedPlaces, []);
 
   async function handleSelectPlace(selectedPlace) {
     setUserPlaces((prevPickedPlaces) => {
@@ -90,7 +77,19 @@ function App() {
 
       setModalIsOpen(false);
     },
-    [userPlaces]
+    [userPlaces, setUserPlaces] /*
+                                   state updating functions normally don't need to be added to dependency arrays of 
+                                   useCallback or useEffect because React guarantees for all those state updating functions 
+                                   that they will never change.
+
+                                   But here in this case now the project simply doesn't understand that setUserPlaces in the 
+                                   end refers to a state updating function because all it sees here is that it's some property 
+                                   we're pulling out of some object. Therefore, for completeness sake, and to get rid
+                                   of that warning, we can simply add setUserPlaces here.
+
+                                   It technically won't make a difference though because it does refer to a state updating 
+                                   function and those are guaranteed by React to never change.
+                                */
   );
 
   function handleErrorModal() {
@@ -124,15 +123,17 @@ function App() {
         </p>
       </header>
       <main>
-      {error && <Error title="An Error Occured!" message={error.message} />}
-       {!error && <Places
-          title="I'd like to visit ..."
-          fallbackText="Select the places you would like to visit below."
-          isLoading={isDataFetching}
-          loadingText="Fetching selected places..."
-          places={userPlaces}
-          onSelectPlace={handleStartRemovePlace}
-        />}
+        {error && <Error title="An Error Occured!" message={error.message} />}
+        {!error && (
+          <Places
+            title="I'd like to visit ..."
+            fallbackText="Select the places you would like to visit below."
+            isLoading={isDataFetching}
+            loadingText="Fetching selected places..."
+            places={userPlaces}
+            onSelectPlace={handleStartRemovePlace}
+          />
+        )}
 
         <AvailablePlaces onSelectPlace={handleSelectPlace} />
       </main>
